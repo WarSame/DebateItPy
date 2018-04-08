@@ -1,4 +1,6 @@
-debateit:
-  image: graemecliffe/debateit
-  ports:
-    - 5000:5000
+version: '3'
+services:
+  debateit:
+    image: graemecliffe/debate_it_py
+    ports:
+      - "5000:5000"
