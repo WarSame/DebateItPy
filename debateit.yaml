@@ -1,0 +1,4 @@
+debateit:
+  image: graemecliffe/debateit
+  ports:
+    - 5000:5000
