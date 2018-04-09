@@ -10,11 +10,8 @@ ADD . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5000
-
-# Define environment variable
-ENV NAME World
+# Export flask app
+ENV FLASK_APP=debateit.py
 
 # Run debateit.py when the container launches
-CMD ["python", "debateit.py"]
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "5001"]

@@ -5,8 +5,8 @@ services:
     volumes:
       - .:/app
     environment:
-     - FLASK_ENV=qa
+     - FLASK_ENV=int
      - PORT=5001
-     - DEBUG=1
+     - DEBUG=0
     ports:
      - "5001:5001"

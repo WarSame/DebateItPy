@@ -1,7 +1,7 @@
-from app import app
+from app import app, docker
 
 
 @app.route("/")
 def thisfunc():
-    return "somdsffgdghdfggfdggdddsffsdddddddzzzzz"
+    return docker.info()
 
