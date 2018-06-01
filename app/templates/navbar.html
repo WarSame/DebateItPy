@@ -8,17 +8,19 @@
       </li>
       <li class="nav-item dropdown">
         <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div id="navbar-items" class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" onClick="setSearchTerm('Action')">Action</a>
-              <a class="dropdown-item" onClick="setSearchTerm('Another action')">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" onClick="setSearchTerm('Something else here')">Something else here</a>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <a class="nav-link dropdown-toggle input-group-text"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search for:</a>
+              <div id="navbar-items" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" onClick="setSearchTerm('Community')">Community</a>
+                <a class="dropdown-item" onClick="setSearchTerm('User')">User</a>
+                <a class="dropdown-item" onClick="setSearchTerm('Topic')">Topic</a>
+              </div>
             </div>
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          </div>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+
         </form>
       </li>
     </ul>
