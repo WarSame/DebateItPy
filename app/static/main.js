@@ -1,3 +1,3 @@
 function setSearchTerm(term){
-    console.log(term);
+    $("#navbarDropdown").text(term);
 }
