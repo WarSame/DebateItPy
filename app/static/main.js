@@ -1,1 +1,3 @@
-alert("hi")
+function setSearchTerm(term){
+    console.log(term);
+}
