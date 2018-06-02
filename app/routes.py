@@ -16,3 +16,7 @@ def print_user(username):
 def print_community(community_name):
     return community_name
 
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
