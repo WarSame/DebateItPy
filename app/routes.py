@@ -1,10 +1,12 @@
 from app import app
-from flask import render_template
+from flask import render_template, session
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return "hi"
+    #session['key'] = 'value'
+    #return render_template("index.html")
 
 
 @app.route("/u/<username>")
@@ -19,4 +21,4 @@ def print_community(community_name):
 
 @app.route("/login")
 def login():
-    return render_template("login.html")
+    return session.get('key', 'not set')#return render_template("login.html")

@@ -1,10 +1,15 @@
-version: '3'
+version: "3"
 services:
+  redis:
+    image: redis
+
   web:
     build: .
     volumes:
       - .:/app
     environment:
-     - DEBUG=1
+     - FLASK_DEBUG=1
     ports:
      - "5000:5000"
+    depends_on:
+      - redis
