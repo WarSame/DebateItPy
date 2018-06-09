@@ -10,7 +10,8 @@ db.set("count", 0)
 def index():
     db.incr("count", 1)
     count = db.get("count")
-    return render_template("index.html", count=int(count))
+    user = db.get("user")
+    return render_template("index.html", count=int(count), user=user)
 
 
 @app.route("/u/<username>")
@@ -25,5 +26,6 @@ def print_community(community_name):
 
 @app.route("/login")
 def login():
+    db.set("user", "graeme")
     return render_template("login.html")
 
