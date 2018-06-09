@@ -9,7 +9,8 @@ db.set("count", 0)
 @app.route("/")
 def index():
     db.incr("count", 1)
-    return render_template("index.html", count=db.get("count"))
+    count = db.get("count")
+    return render_template("index.html", count=int(count))
 
 
 @app.route("/u/<username>")
