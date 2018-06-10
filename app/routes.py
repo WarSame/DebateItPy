@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template
+from .forms import EmailPasswordForm
 import redis
 
 db = redis.Redis(host="redis", port=6379)
@@ -24,8 +25,16 @@ def print_community(community_name):
     return community_name
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    db.set("user", "graeme")
-    return render_template("login.html")
+    form = EmailPasswordForm()
+    if form.validate_on_submit():
+        db.set("user", form.email)
+        return render_template("index.html")
+    return render_template("login.html", form=form)
 
+
+@app.route("/logout")
+def logout():
+    db.delete("user")
+    return "logout"
