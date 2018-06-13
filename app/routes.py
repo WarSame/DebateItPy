@@ -12,7 +12,7 @@ def index():
     app.logger.info(db.get("user"))
     db.incr("count", 1)
     count = db.get("count")
-    user = db.get("user")
+    user = db.get("user").decode("utf-8")
     return render_template("index.html", count=int(count), user=user)
 
 
