@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, redirect
-from .forms import EmailPasswordForm, MyForm
+from .forms import EmailPasswordForm
 import redis
 
 db = redis.Redis(host="redis", port=6379)
@@ -9,10 +9,13 @@ db.set("count", 0)
 
 @app.route("/")
 def index():
-    app.logger.info(db.get("user"))
     db.incr("count", 1)
     count = db.get("count")
-    user = db.get("user").decode("utf-8")
+    user = db.get("user")
+    if user is None:
+        user = ""
+    else:
+        user = user.decode("utf-8")
     return render_template("index.html", count=int(count), user=user)
 
 
@@ -38,9 +41,10 @@ def submit():
 def login():
     form = EmailPasswordForm()
     if form.validate_on_submit():
+        app.logger.info("Posting login")
         db.set("user", form.email.data)
         return redirect("/")
-    app.logger.info("not validated")
+    app.logger.info("Getting login")
     return render_template("login.html", form=form)
 
 
