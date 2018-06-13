@@ -38,8 +38,7 @@ def submit():
 def login():
     form = EmailPasswordForm()
     if form.validate_on_submit():
-        app.logger.info(form.email.data)
-        app.logger.info("validated")
+        db.set("user", form.email.data)
         return redirect("/")
     app.logger.info("not validated")
     return render_template("login.html", form=form)
