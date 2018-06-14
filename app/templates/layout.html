@@ -19,38 +19,26 @@
     </head>
     <body>
         <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0&appId=485484021845294&autoLogAppEvents=1';
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        </script>
-
         <script>
-            function statusChangeCallback(response){
-                console.log("response");
-                console.log(response);
-                window.location = "/";
-            }
-
-            function checkLoginState(){
-                FB.getLoginStatus(function(response){
-                    statusChangeCallback(response);
-                });
-            }
-
             window.fbAsyncInit = function() {
                 FB.init({
-                appId            : '485484021845294',
-                autoLogAppEvents : true,
-                xfbml            : true,
-                version          : 'v3.0'
+                    appId            : '485484021845294',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v3.0'
                 });
 
-                FB.getLoginStatus(function(response){
-                    statusChangeCallback(response);
+
+                FB.getLoginStatus(function(response) {
+                    $("#fb-button").click(function() {
+                        console.log(response.status);
+                        if (response.status === "connected") {
+                            FB.logout(function(response) {});
+                        }
+                        else {
+                            FB.login(function(response) {});
+                        }
+                    });
                 });
             };
 
@@ -62,6 +50,7 @@
                 js.src = "https://connect.facebook.net/en_US/sdk/debug.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
+
         </script>
 
         {% include "navbar.html" %}
