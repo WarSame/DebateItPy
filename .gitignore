@@ -101,5 +101,5 @@ ENV/
 .mypy_cache/
 
 #secret files
-*.secrets
 .idea/workspace.xml
+/app/client.secrets
