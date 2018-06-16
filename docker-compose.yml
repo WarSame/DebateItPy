@@ -3,6 +3,17 @@ services:
   redis:
     image: redis:latest
 
+  db:
+    image: postgres:latest
+    volumes:
+      - /private/var/lib/postgresql:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pguser
+      POSTGRES_DB: pgdb
+
   web:
     build: .
     volumes:
@@ -13,3 +24,4 @@ services:
      - "5000:5000"
     depends_on:
       - redis
+      - db
