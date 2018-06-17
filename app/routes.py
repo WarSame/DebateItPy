@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, redirect
 from .forms import EmailPasswordForm
 import redis
-from .db import db
+from .db import conn
 
 redis = redis.Redis(host="redis", port=6379)
 
