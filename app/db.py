@@ -10,8 +10,8 @@ def create_user(name):
     cur.execute("INSERT INTO users (name) VALUES (%s)", name)
 
 
-def get_user(userid):
-    cur.execute("SELECT * from users;")
+def get_user(user_id):
+    cur.execute("SELECT * from users WHERE id = %s;", user_id)
     user = cur.fetchone()
     app.logger.info(user)
     return user
