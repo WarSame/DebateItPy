@@ -2,13 +2,14 @@ from app import app
 from flask import render_template, redirect
 from .forms import EmailPasswordForm
 import redis
+from .db import db
 
-db = redis.Redis(host="redis", port=6379)
+redis = redis.Redis(host="redis", port=6379)
 
 
 @app.route("/")
 def index():
-    user = db.get("user")
+    user = redis.get("user")
     if user is None:
         user = ""
     else:
@@ -31,7 +32,7 @@ def login():
     form = EmailPasswordForm()
     if form.validate_on_submit():
         app.logger.info("Posting login")
-        db.set("user", form.email.data)
+        redis.set("user", form.email.data)
         return redirect("/")
     app.logger.info("Getting login")
     return render_template("login.html", form=form)
@@ -39,5 +40,5 @@ def login():
 
 @app.route("/logout")
 def logout():
-    db.delete("user")
+    redis.delete("user")
     return "logout"
