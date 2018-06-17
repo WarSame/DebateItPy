@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, redirect
 from .forms import EmailPasswordForm
 import redis
-from .db import conn
+from .db import get_user, create_user
 
 redis = redis.Redis(host="redis", port=6379)
 
@@ -17,14 +17,15 @@ def index():
     return render_template("index.html", user=user)
 
 
-@app.route("/u/<username>")
-def print_user(username):
-    return username
+@app.route("/u/<user_id>")
+def print_user(user_id):
+    user = get_user(user_id)
+    return render_template("user.html", user=user)
 
 
-@app.route("/c/<community_name>")
-def print_community(community_name):
-    return community_name
+@app.route("/c/<community_id>")
+def print_community(community_id):
+    return community_id
 
 
 @app.route("/login", methods=("GET", "POST"))
