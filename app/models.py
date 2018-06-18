@@ -26,7 +26,7 @@ class Post(db.Model):
     text = db.Column(db.String(100000), nullable=False)
     create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    user = db.relationship('User', backref=db.backref('post'), uselist=False)
+    user = db.relationship('User', backref=db.backref('post'))
 
     def __repr__(self):
         return "<Post: {0}>".format(self.title)

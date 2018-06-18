@@ -7,7 +7,7 @@ Name: {{ user.name }}
 Posts:
 <ul>
     {% for post in user.posts %}
-        <li>{{ post }}</li>
+        <li>{{ post.title }}</li>
     {% endfor %}
 </ul>
 {% endblock %}
