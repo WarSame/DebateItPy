@@ -4,9 +4,6 @@ from .models import User
 
 
 db = SQLAlchemy(app)
-db.init_app(app)
-db.create_all()
-db.session.commit()
 
 
 def get_user(user_id):
