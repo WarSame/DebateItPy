@@ -1,13 +1,15 @@
 from .db import db
 from datetime import datetime
 
-user_community_table = db.Table("user_community", db.metadata,
+user_community_table = db.Table("user_community",
+                                db.metadata,
                                 db.Column("user_id", db.Integer, db.ForeignKey("user.id")),
                                 db.Column("community_id", db.Integer, db.ForeignKey("community.id"))
                                 )
 
 
 class User(db.Model):
+    __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
     create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
@@ -17,6 +19,7 @@ class User(db.Model):
 
 
 class Community(db.Model):
+    __tablename__ = "community"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
 
@@ -25,6 +28,7 @@ class Community(db.Model):
 
 
 class Post(db.Model):
+    __tablename__ = "post"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(1000), nullable=False)
     text = db.Column(db.String(100000), nullable=False)

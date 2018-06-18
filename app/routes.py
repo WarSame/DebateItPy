@@ -23,9 +23,9 @@ def print_user(user_id):
     return render_template("user.html", user=user)
 
 
-@app.route("/create_user", methods=["GET"])
-def create_new_user():
-    user = create_user()
+@app.route("/create_user/<name>", methods=["GET"])
+def create_new_user(name):
+    user = create_user(name=name)
     return render_template("user.html", user=user)
 
 
