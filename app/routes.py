@@ -28,6 +28,13 @@ def print_community(community_id):
     return community_id
 
 
+@app.route("/p/<post_id>")
+def print_post(post_id):
+    #post = get_post(post_id)
+    #return render_template("post.html", post=post)
+    pass
+
+
 @app.route("/login", methods=("GET", "POST"))
 def login():
     form = EmailPasswordForm()
