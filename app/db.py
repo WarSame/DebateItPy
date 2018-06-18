@@ -20,4 +20,7 @@ def get_user(user_id):
 def create_user():
     user = User()
     user.name = "this"
+    user.community_id = 1
+    db.session.add(user)
+    db.session.commit()
     return user
