@@ -1,13 +1,16 @@
 from .db import db
 from datetime import datetime
 
+user_community_table = db.Table("user_community", db.metadata,
+                                db.Column("user_id", db.Integer, db.ForeignKey("user.id")),
+                                db.Column("community_id", db.Integer, db.ForeignKey("community.id"))
+                                )
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
     create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
-    community_id = db.Column(db.Integer, db.ForeignKey('community.id'), nullable=False)
-    communities = db.relationship('Community', backref=db.backref('user'))
 
     def __repr__(self):
         return "<User: {0}>".format(self.name)
@@ -27,8 +30,7 @@ class Post(db.Model):
     text = db.Column(db.String(100000), nullable=False)
     create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    user = db.relationship('User', backref=db.backref('post'))
+    user = db.relationship('User', backref=db.backref('post'), uselist=False)
 
     def __repr__(self):
         return "<Post: {0}>".format(self.title)
-
