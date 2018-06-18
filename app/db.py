@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy(app)
 
-from .models import User, Post, Community
+from .models import *
 
 db.create_all()
 db.session.commit()

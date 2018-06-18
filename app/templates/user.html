@@ -9,5 +9,6 @@ Posts:
     {% for post in user.posts %}
         <li>{{ post.title }}</li>
     {% endfor %}
+    {{ user.create_date }}
 </ul>
 {% endblock %}

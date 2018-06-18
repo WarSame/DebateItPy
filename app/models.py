@@ -5,6 +5,7 @@ from datetime import datetime
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
+    create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     community_id = db.Column(db.Integer, db.ForeignKey('community.id'), nullable=False)
     communities = db.relationship('Community', backref=db.backref('user'))
 
