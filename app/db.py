@@ -15,3 +15,9 @@ def get_user(user_id):
     app.logger.info(user)
     user.posts = Post.query.filter_by(user_id=user_id).all()
     return user
+
+
+def create_user():
+    user = User()
+    user.name = "this"
+    return user
