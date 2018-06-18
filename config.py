@@ -13,3 +13,6 @@ class Config(object):
     GOOGLE_LOGIN_CLIENT_SECRET = config.get("google-auth", "GOOGLE_LOGIN_CLIENT_SECRET")
     FACEBOOK_LOGIN_CLIENT_ID = config.get("facebook-auth", "FACEBOOK_LOGIN_CLIENT_ID")
     FACEBOOK_LOGIN_CLIENT_SECRET = config.get("facebook-auth", "FACEBOOK_LOGIN_CLIENT_SECRET")
+
+    SQLALCHEMY_DATABASE_URI = "postgresql://pguser:pguser@db:5432/debateit"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

@@ -1,17 +1,16 @@
-import psycopg2.extras
 from app import app
+from flask_sqlalchemy import SQLAlchemy
+from .models import User
 
 
-conn = psycopg2.connect(dbname="debateit", host="db", port=5432, user="pguser", password="pguser")
-cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-
-
-def create_user(name):
-    cur.execute("INSERT INTO users (name) VALUES (%s)", name)
+db = SQLAlchemy(app)
+db.init_app(app)
+db.create_all()
+db.session.commit()
 
 
 def get_user(user_id):
-    cur.execute("SELECT * from users WHERE id = %s;", user_id)
-    user = cur.fetchone()
+    user = User.query.filter_by(id=user_id).first()
     app.logger.info(user)
+    app.logger.info(user.name)
     return user
