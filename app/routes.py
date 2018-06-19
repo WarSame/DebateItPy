@@ -18,24 +18,29 @@ def index():
 
 
 @app.route("/u/<user_id>")
-def print_user(user_id):
+def display_user(user_id):
     user = get_user(user_id)
     return render_template("user.html", user=user)
 
 
-@app.route("/create_user/<name>", methods=["GET"])
+@app.route("/u", methods=["POST"])
 def create_new_user(name):
     user = create_user(name=name)
     return render_template("user.html", user=user)
 
 
 @app.route("/c/<community_id>")
-def print_community(community_id):
+def display_community(community_id):
     return community_id
 
 
+@app.route("/c", methods=["POST"])
+def create_new_community():
+    pass
+
+
 @app.route("/p/<post_id>")
-def print_post(post_id):
+def display_post(post_id):
     #post = get_post(post_id)
     #return render_template("post.html", post=post)
     pass
