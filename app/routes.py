@@ -27,26 +27,23 @@ def display_user(name=None, user_id=None):
     return render_template("user.html", user=user)
 
 
-@app.route("/c/<community_id>")
-def display_community(community_id):
-    community = get_community(community_id)
+@app.route("/c/", methods=["POST"])
+@app.route("/c/<community_id>", methods=["GET"])
+def display_community(name=None, community_id=None):
+    if request.method == "POST":
+        community = create_community()
+    else:
+        community = get_community(community_id)
     return render_template("community.html", community=community)
 
-
-@app.route("/c", methods=["POST"])
-def create_new_community():
-    community = create_community()
-    return render_template("community.html", community=community)
-
-
-@app.route("/p/<post_id>")
-def display_post(post_id):
-    post = get_post(post_id)
-    return render_template("post.html", post=post)
 
 @app.route("/p", methods=["POST"])
-def create_new_post():
-    post = create_post()
+@app.route("/p/<post_id>", methods=["GET"])
+def display_post(post_id):
+    if request.method == "POST":
+        post = create_post()
+    else:
+        post = get_post(post_id)
     return render_template("post.html", post=post)
 
 
