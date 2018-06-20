@@ -22,6 +22,7 @@ class Community(db.Model):
     __tablename__ = "community"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
+    description = db.Column(db.String(1000))
 
     def __repr__(self):
         return "<Community: {0}>".format(self.name)

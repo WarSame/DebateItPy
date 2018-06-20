@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, redirect, request
 from .forms import EmailPasswordForm
 import redis
-from .db import get_user, create_user
+from .db import get_user, create_user, get_community, create_community, get_post, create_post
 
 redis = redis.Redis(host="redis", port=6379)
 
@@ -29,9 +29,11 @@ def display_user(name=None, user_id=None):
 
 @app.route("/c/", methods=["POST"])
 @app.route("/c/<community_id>", methods=["GET"])
-def display_community(name=None, community_id=None):
+def display_community(community_id=None):
     if request.method == "POST":
-        community = create_community()
+        name = request.form["name"]
+        description = request.form["description"]
+        community = create_community(name=name, description=description)
     else:
         community = get_community(community_id)
     return render_template("community.html", community=community)
@@ -41,7 +43,10 @@ def display_community(name=None, community_id=None):
 @app.route("/p/<post_id>", methods=["GET"])
 def display_post(post_id):
     if request.method == "POST":
-        post = create_post()
+        title = request.form["title"]
+        text = request.form["text"]
+        user_id = request.form["user_id"]
+        post = create_post(title=title, text=text, user_id=user_id)
     else:
         post = get_post(post_id)
     return render_template("post.html", post=post)
