@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, redirect, request
 from .forms import EmailPasswordForm
 import redis
-from .db import get_user, create_user, get_community, create_community, get_post, create_post
+from .db import User
 
 redis = redis.Redis(host="redis", port=6379)
 
@@ -21,9 +21,9 @@ def index():
 @app.route("/u/<user_id>", methods=["GET"])
 def display_user(name=None, user_id=None):
     if request.method == "POST":
-        user = create_user(name=name)
+        user = User.create(name)
     else:
-        user = get_user(user_id)
+        user = User.retrieve(row_id=user_id)
     return render_template("user.html", user=user)
 
 

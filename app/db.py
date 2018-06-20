@@ -10,19 +10,6 @@ db.create_all()
 db.session.commit()
 
 
-def get_user(user_id):
-    user = User.query.filter_by(id=user_id).first()
-    app.logger.info(user)
-    return user
-
-
-def create_user(name):
-    user = User(name=name)
-    db.session.add(user)
-    db.session.commit()
-    return user
-
-
 def create_community(name, description):
     community = Community(name=name, description=description)
     db.session.add(community)
