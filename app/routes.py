@@ -74,3 +74,13 @@ def login():
 def logout():
     redis.delete("user")
     return "logout"
+
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        name = request.form["name"]
+        user = User.create(name=name)
+        return render_template("user.html", user=user)
+    else:
+        return render_template("signup.html")
