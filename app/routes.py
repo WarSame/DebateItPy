@@ -3,7 +3,7 @@ from flask import render_template, redirect, request
 from .forms import EmailPasswordForm
 import redis
 from .db import initialize_db
-from .models import User
+from .models import User, Community, Post
 
 redis = redis.Redis(host="redis", port=6379)
 
@@ -40,9 +40,9 @@ def display_community(community_id=None):
     if request.method == "POST":
         name = request.form["name"]
         description = request.form["description"]
-        community = create_community(name=name, description=description)
+        community = Community.create(name=name, description=description)
     else:
-        community = get_community(community_id)
+        community = Community.retrieve(row_id=community_id)
     return render_template("community.html", community=community)
 
 
@@ -53,9 +53,9 @@ def display_post(post_id):
         title = request.form["title"]
         text = request.form["text"]
         user_id = request.form["user_id"]
-        post = create_post(title=title, text=text, user_id=user_id)
+        post = Post.create(title=title, text=text, user_id=user_id)
     else:
-        post = get_post(post_id)
+        post = Post.retrieve(row_id=post_id)
     return render_template("post.html", post=post)
 
 
