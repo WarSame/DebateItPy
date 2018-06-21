@@ -25,7 +25,18 @@ class BaseModel(db.Model):
 
     @classmethod
     def retrieve(cls, row_id):
-        return cls.query.filter_by(id=row_id).first()
+        return cls.query.get(row_id)
+
+    @classmethod
+    def update(cls, **kwargs):
+        cls.query.get(kwargs["id"]).update(kwargs)
+        db.session.commit()
+        return kwargs
+
+    @classmethod
+    def delete(cls, row_id):
+        cls.query.delete(row_id)
+        db.session.commit()
 
     def __repr__(self):
         return self.__dict__
