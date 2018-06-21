@@ -79,7 +79,7 @@ def login():
 @app.route("/logout")
 def logout():
     redis.delete("user")
-    return "logout"
+    return render_template("index.html", user=None)
 
 
 @app.route("/signup", methods=["GET", "POST"])
