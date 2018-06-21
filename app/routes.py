@@ -2,9 +2,15 @@ from app import app
 from flask import render_template, redirect, request
 from .forms import EmailPasswordForm
 import redis
+from .db import initialize_db
 from .models import User
 
 redis = redis.Redis(host="redis", port=6379)
+
+
+@app.before_first_request
+def setup():
+    initialize_db()
 
 
 @app.route("/")
@@ -24,6 +30,7 @@ def display_user(name=None, user_id=None):
         user = User.create(name=name)
     else:
         user = User.retrieve(row_id=user_id)
+    app.logger.info(user)
     return render_template("user.html", user=user)
 
 
