@@ -31,6 +31,8 @@ def display_user(name=None, user_id=None):
     else:
         user = User.retrieve(row_id=user_id)
     app.logger.info(user)
+    if user is None:
+        return render_template("missing.html")
     return render_template("user.html", user=user)
 
 
@@ -43,6 +45,8 @@ def display_community(community_id=None):
         community = Community.create(name=name, description=description)
     else:
         community = Community.retrieve(row_id=community_id)
+    if community is None:
+        return render_template("missing.html")
     return render_template("community.html", community=community)
 
 
@@ -56,6 +60,8 @@ def display_post(post_id):
         post = Post.create(title=title, text=text, user_id=user_id)
     else:
         post = Post.retrieve(row_id=post_id)
+    if post is None:
+        return render_template("missing.html")
     return render_template("post.html", post=post)
 
 
