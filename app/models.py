@@ -1,11 +1,11 @@
 from .db import db
 from datetime import datetime
-from app import app
 
 user_community_table = db.Table("user_community",
                                 db.metadata,
                                 db.Column("user_id", db.Integer, db.ForeignKey("user.id")),
-                                db.Column("community_id", db.Integer, db.ForeignKey("community.id"))
+                                db.Column("community_id", db.Integer, db.ForeignKey("community.id")),
+                                extend_existing=True
                                 )
 
 
@@ -13,8 +13,8 @@ class BaseModel(db.Model):
     __abstract__ = True
 
     id = db.Column(db.Integer, primary_key=True)
-    create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
-    update_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow(), onupdate=db.func.now())
+    create_date = db.Column(db.DateTime, default=datetime.utcnow())
+    update_date = db.Column(db.DateTime, default=datetime.utcnow(), onupdate=db.func.now())
 
     @classmethod
     def create(cls, **kwargs):
