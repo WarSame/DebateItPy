@@ -12,6 +12,10 @@ user_community_table = db.Table("user_community",
 class BaseModel(db.Model):
     __abstract__ = True
 
+    id = db.Column(db.Integer, primary_key=True)
+    create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
+    update_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow(), onupdate=db.func.now())
+
     @classmethod
     def create(cls, **kwargs):
         obj = cls(**kwargs)
@@ -21,14 +25,10 @@ class BaseModel(db.Model):
 
     @classmethod
     def retrieve(cls, row_id):
-        return db.session.query(id=row_id).first()
+        return cls.query.filter_by(id=row_id).first()
 
     def __repr__(self):
         return self.__dict__
-
-    id = db.Column(db.Integer, primary_key=True)
-    create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
-    update_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow(), onupdate=db.func.now())
 
 
 class User(BaseModel):
