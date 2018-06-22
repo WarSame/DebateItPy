@@ -2,40 +2,6 @@
 {% block title %}DebateIt{% endblock %}
 {% block content %}
 
-<div id="fb-root"></div>
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId            : '485484021845294',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v3.0'
-        });
-
-
-        FB.getLoginStatus(function(response) {
-            $("#fb-button").click(function() {
-                console.log(response.status);
-                if (response.status === "connected") {
-                    FB.logout(function(response) {});
-                }
-                else {
-                    FB.login(function(response) {});
-                }
-            });
-        });
-    };
-
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk/debug.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-</script>
 <div class="text-center">
     <form method="POST" class="form-signin" action="/login">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -45,23 +11,7 @@
         <button type="submit" value="Submit">Submit</button>
     </form>
 </div>
-<button id="fb-button">Facebook</button>
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
-<script>
-    function onSignIn() {
-        let googleUser = gapi.auth2.getAuthInstance().currentUser.get();
-        var profile = googleUser.getBasicProfile();
-        console.log("Signed in.");
-        console.log("ID: + profile.getId());
-    }
-</script>
+
 <a href="#" onClick="googleSignOut();">Sign out</a>
-<script>
-    function googleSignOut(){
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function(){
-            console.log("User signed out.");
-        });
-    }
-</script>
 {% endblock %}
