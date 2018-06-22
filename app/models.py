@@ -83,7 +83,7 @@ class Post(BaseModel):
     text = db.Column(db.String(1000000), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User', backref=db.backref('post'), uselist=False)
-    debate_id = db.Column(db.Integer, db.ForeignKey("debate.id", nullable=False))
+    debate_id = db.Column(db.Integer, db.ForeignKey("debate.id"), nullable=False)
     debate = db.relationship("Debate", backref=db.backref("post"), uselist=False)
 
     def __repr__(self):
