@@ -11,7 +11,7 @@ user_community_table = db.Table("user_community",
 
 class BaseModel(db.Model):
     __abstract__ = True
-    __table_args__ = {"extend_existing" : True}
+    __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.Integer, primary_key=True)
     create_date = db.Column(db.DateTime, default=datetime.utcnow())
@@ -68,9 +68,9 @@ class Debate(BaseModel):
     title = db.Column(db.String(1000), nullable=False)
     text = db.Column(db.String(1000000), nullable=False)
     creator_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    user = db.relationship("User", backref=db.backref("debate"), uselist=False)
+    user = db.relationship("User", backref=db.backref("debate", cascade="all,delete"), uselist=False)
     community_id = db.Column(db.Integer, db.ForeignKey("community.id"), nullable=False)
-    community = db.relationship("Community", backref=db.backref("debate"), uselist=False)
+    community = db.relationship("Community", backref=db.backref("debate", cascade="all,delete"), uselist=False)
 
     def __repr__(self):
         return "<Debate: {0}>".format(self.title)
