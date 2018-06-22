@@ -47,6 +47,8 @@ class User(BaseModel):
     __tablename__ = "user"
 
     name = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(80), nullable=False)
+    google_id = db.Column(db.String(100))
 
     def __repr__(self):
         return "<User: {0}>".format(self.name)
