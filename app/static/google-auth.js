@@ -1,7 +1,6 @@
 function onSignIn(googleUser) {
     let id_token = googleUser.getAuthResponse().id_token;
     console.log("Signed in.");
-    console.log("ID:" + profile.getId());
 }
 
 function googleSignOut(){
