@@ -9,6 +9,7 @@ ADD . /app
 
 #pre-reqs for psycopg2
 RUN apk update && \
+    apk add bash && \
     apk add --virtual build-deps gcc python-dev musl-dev && \
     apk add postgresql-dev
 
