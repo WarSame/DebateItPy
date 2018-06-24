@@ -1,6 +1,5 @@
 from app import app
 import unittest
-from flask_sqlalchemy import SQLAlchemy
 
 
 class testUser(unittest.TestCase):
