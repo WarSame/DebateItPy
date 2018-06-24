@@ -103,3 +103,4 @@ ENV/
 #secret files
 .idea/workspace.xml
 /app/client.secrets
+/app/secrets.py
