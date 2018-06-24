@@ -39,4 +39,4 @@ services:
       - web
     volumes:
     - .:/app
-    command: "python -m unittest /app/test/test_models.py"
+    command: "python -m unittest discover"
