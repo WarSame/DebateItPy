@@ -11,10 +11,10 @@ def create_app():
 
 app = create_app()
 db = SQLAlchemy(app)
+db.init_app(app)
 
 
 def initialize_db():
-    db.init_app(app)
     with app.app_context():
         db.metadata.drop_all(bind=db.engine)
         db.metadata.create_all(bind=db.engine)

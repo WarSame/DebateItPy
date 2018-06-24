@@ -19,7 +19,7 @@ class testUser(unittest.TestCase):
 
     def test_find_user_by_name(self):
         user = User.retrieve_one(name=self.USER_NAME)
-        self.app.logger.info(user)
+        print(user)
 
     def test_find_user_by_googleid(self):
         User.create(name="googleuser", email="googleuser@gmail.com", google_id="113431480376190007245")
