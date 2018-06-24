@@ -1,12 +1,19 @@
-from app.models import *
-from app.db import initialize_db
+import debateit
 import unittest
-
+from flask_sqlalchemy import SQLAlchemy
 
 class testUser(unittest.TestCase):
     def setUp(self):
-        initialize_db()
+        debateit.app.config["SECRET_KEY"] = "this"
+        debateit.testing = True
+        debateit.db = SQLAlchemy(debateit)
+        self.app = debateit.app.test_client()
+        with debateit.app.app_context():
+            debateit.app.db.initialize_db()
 
     def test(self):
         print("hello")
 
+
+if __name__ == "__main__":
+    unittest.main()
