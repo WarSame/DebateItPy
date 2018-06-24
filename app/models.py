@@ -25,8 +25,8 @@ class BaseModel(db.Model):
         return obj
 
     @classmethod
-    def retrieve(cls, row_id):
-        return cls.query.get(row_id)
+    def retrieve(cls, **kwargs):
+        return cls.query.filter_by(kwargs)
 
     @classmethod
     def update(cls, **kwargs):
