@@ -24,6 +24,7 @@ services:
       - .:/app
     environment:
      - FLASK_DEBUG=1
+    command: "python -m unittest /app/test/test_models.py"
     ports:
      - "80:5000"
     depends_on:
