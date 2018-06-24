@@ -25,8 +25,12 @@ class BaseModel(db.Model):
         return obj
 
     @classmethod
-    def retrieve(cls, **kwargs):
-        return cls.query.filter_by(kwargs)
+    def retrieve_one(cls, **kwargs):
+        return cls.query.filter_by(id=1)
+
+    @classmethod
+    def retrieve_all(cls, **kwargs):
+        return cls.query.filter_by(**kwargs).all()
 
     @classmethod
     def update(cls, **kwargs):
