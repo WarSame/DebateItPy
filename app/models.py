@@ -30,13 +30,13 @@ class BaseModel(db.Model):
 
     @classmethod
     def update(cls, **kwargs):
-        cls.query.get(kwargs["id"]).update(kwargs)
+        cls.query.update(kwargs)
         db.session.commit()
         return kwargs
 
     @classmethod
-    def delete(cls, row_id):
-        cls.query.delete(row_id)
+    def delete(cls, **kwargs):
+        cls.query.delete(kwargs)
         db.session.commit()
 
     def __repr__(self):
