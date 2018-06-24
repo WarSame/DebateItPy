@@ -2,11 +2,22 @@ from app import app
 from flask import render_template, redirect, request
 from .forms import EmailPasswordForm
 import redis
-from . import initialize_db
 from .models import User, Community, Post
 from .oauth import receive_google_token
+from flask_sqlalchemy import SQLAlchemy
 
 redis = redis.Redis(host="redis", port=6379)
+
+
+db = SQLAlchemy(app)
+
+
+def initialize_db():
+    db.init_app(app)
+    with app.app_context():
+        db.metadata.drop_all(bind=db.engine)
+        db.metadata.create_all(bind=db.engine)
+        db.session.commit()
 
 
 @app.before_first_request
