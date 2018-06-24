@@ -2,7 +2,7 @@ function onSignIn(googleUser) {
     let id_token = googleUser.getAuthResponse().id_token;
     console.log("Signed in.");
     $.post("/token_signin", {token: id_token}, function(data, status){
-        console.log(data + status)
+        console.log(data + " " + status)
     });
 }
 

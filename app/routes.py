@@ -93,7 +93,7 @@ def signup():
         return render_template("signup.html")
 
 
-@app.route("/tokensignin")
+@app.route("/token_signin", methods=["POST"])
 def token_signin():
     token = request.form["token"]
     userid = receive_google_token(token)
