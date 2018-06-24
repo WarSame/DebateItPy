@@ -4,6 +4,7 @@ from .forms import EmailPasswordForm
 import redis
 from .db import initialize_db
 from .models import User, Community, Post
+from .oauth import receive_google_token
 
 redis = redis.Redis(host="redis", port=6379)
 
@@ -90,3 +91,11 @@ def signup():
         return render_template("user.html", user=user)
     else:
         return render_template("signup.html")
+
+
+@app.route("/tokensignin")
+def token_signin():
+    token = request.form["token"]
+    userid = receive_google_token(token)
+    app.logger.info(userid)
+    return userid
