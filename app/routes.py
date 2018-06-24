@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, redirect, request
 from .forms import EmailPasswordForm
 import redis
-from .db import initialize_db
+from . import initialize_db
 from .models import User, Community, Post
 from .oauth import receive_google_token
 

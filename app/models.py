@@ -1,4 +1,4 @@
-from .db import db
+from . import db
 from datetime import datetime
 
 user_community_table = db.Table("user_community",
