@@ -1,6 +1,5 @@
 from app import app
 from flask import render_template, redirect, request
-from .forms import EmailPasswordForm
 import redis
 from .models import User, Community, Post
 from .oauth import receive_google_token
@@ -78,30 +77,19 @@ def display_post(post_id):
 
 
 @app.route("/login", methods=["GET", "POST"])
-def login():
-    form = EmailPasswordForm()
-    if form.validate_on_submit():
-        app.logger.info("Posting login")
-        redis.set("user", form.email.data)
-        return redirect("/")
-    app.logger.info("Getting login")
-    return render_template("login.html", form=form)
-
-
-@app.route("/logout")
-def logout():
-    redis.delete("user")
-    return render_template("index.html", user=None)
-
-
-@app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
         name = request.form["name"]
         user = User.create(name=name)
         return render_template("user.html", user=user)
     else:
-        return render_template("signup.html")
+        return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    redis.delete("user")
+    return redirect("/")
 
 
 @app.route("/google/token_signin", methods=["POST"])
@@ -116,6 +104,6 @@ def token_signin():
         app.logger.info("Found user by google id {}".format(user))
     else:
         app.logger.info("Didn't find user by google id")
-        User.create(name=user_name, google_id=user_id, email=user_email)
+        user = User.create(name=user_name, google_id=user_id, email=user_email)
     app.logger.info(user_id)
     return render_template("user.html", user=user)

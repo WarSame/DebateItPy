@@ -1,17 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}DebateIt{% endblock %}
 {% block content %}
-
-<div class="text-center">
-    <form method="POST" class="form-signin" action="/login">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        {{ form.email.label }} {{ form.email(class_="form-control", placeholder="Email address") }}
-        {{ form.password(class_="form-control") }}
-        {{ form.csrf_token }}
-        <button type="submit" value="Submit">Submit</button>
-    </form>
-</div>
+<h1>Signup</h1>
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-<a href="#" onClick="googleSignOut();">Sign out</a>
 {% endblock %}
