@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, redirect, request, session
 import redis
-from .models import User, Community, Post
+from .models import User, Community, Post, Debate
 from .oauth import receive_google_token
 from flask_sqlalchemy import SQLAlchemy
 
@@ -36,9 +36,12 @@ def index():
 
 @app.route("/u/", methods=["POST"])
 @app.route("/u/<user_id>", methods=["GET"])
-def display_user(name=None, user_id=None):
+def user(user_id=None):
     if request.method == "POST":
-        user = User.create(name=name)
+        user_dict = dict()
+        user_dict["name"] = request.form["name"]
+        user_dict["email"] = request.form["email"]
+        user = User.create(**user_dict)
     else:
         user = User.retrieve_one(id=user_id)
     app.logger.info(user)
@@ -49,11 +52,12 @@ def display_user(name=None, user_id=None):
 
 @app.route("/c/", methods=["POST"])
 @app.route("/c/<community_id>", methods=["GET"])
-def display_community(community_id=None):
+def community(community_id=None):
     if request.method == "POST":
-        name = request.form["name"]
-        description = request.form["description"]
-        community = Community.create(name=name, description=description)
+        community_dict = dict()
+        community_dict["name"] = request.form["name"]
+        community_dict["description"] = request.form["description"]
+        community = Community.create(**community_dict)
     else:
         community = Community.retrieve_one(id=community_id)
     if community is None:
@@ -61,14 +65,32 @@ def display_community(community_id=None):
     return render_template("community.html", community=community)
 
 
+@app.route("/d/", methods=["POST"])
+@app.route("/d/<debate_id>", methods=["GET"])
+def debate(debate_id=None):
+    if request.method == "POST":
+        debate_dict = dict()
+        debate_dict["title"] = request.form["title"]
+        debate_dict["text"] = request.form["text"]
+        debate_dict["creator_id"] = request.form["creator_id"]
+        debate_dict["communiy_id"] = request.form["community_id"]
+        debate = Debate.create(** debate_dict)
+    else:
+        debate = Debate.retrieve_one(id = debate_id)
+    if debate is None:
+        return render_template("missing.html")
+    return render_template("debate.html", debate=debate)
+
+
 @app.route("/p", methods=["POST"])
 @app.route("/p/<post_id>", methods=["GET"])
-def display_post(post_id):
+def post(post_id=None):
     if request.method == "POST":
-        title = request.form["title"]
-        text = request.form["text"]
-        user_id = request.form["user_id"]
-        post = Post.create(title=title, text=text, user_id=user_id)
+        post_dict = dict()
+        post_dict["title"] = request.form["title"]
+        post_dict["text"] = request.form["text"]
+        post_dict["user_id"] = request.form["user_id"]
+        post = Post.create(**post_dict)
     else:
         post = Post.retrieve_one(id=post_id)
     if post is None:
