@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, session
 import redis
 from .models import User, Community, Post
 from .oauth import receive_google_token
@@ -77,7 +77,7 @@ def display_post(post_id):
 
 
 @app.route("/login", methods=["GET", "POST"])
-def signup():
+def login():
     if request.method == "POST":
         name = request.form["name"]
         user = User.create(name=name)
