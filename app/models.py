@@ -26,7 +26,7 @@ class BaseModel(db.Model):
 
     @classmethod
     def retrieve_one(cls, **kwargs):
-        return cls.query.filter_by(id=1)
+        return cls.query.filter_by(**kwargs).first()
 
     @classmethod
     def retrieve_all(cls, **kwargs):
@@ -34,13 +34,13 @@ class BaseModel(db.Model):
 
     @classmethod
     def update(cls, **kwargs):
-        cls.query.update(kwargs)
+        cls.query.update(**kwargs)
         db.session.commit()
         return kwargs
 
     @classmethod
     def delete(cls, **kwargs):
-        cls.query.delete(kwargs)
+        cls.query.delete(**kwargs)
         db.session.commit()
 
     def __repr__(self):

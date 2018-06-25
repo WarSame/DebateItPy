@@ -108,5 +108,10 @@ def signup():
 def token_signin():
     token = request.form["token"]
     userid = receive_google_token(token)
+    user = User.query.filter_by(id=1).first()
+    if user:
+        app.logger.info("Found user by google id {}".format(user))
+    else:
+        app.logger.info("Didn't find user by google id")
     app.logger.info(userid)
     return userid
