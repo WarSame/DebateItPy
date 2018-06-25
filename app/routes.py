@@ -107,11 +107,12 @@ def signup():
 @app.route("/google/token_signin", methods=["POST"])
 def token_signin():
     token = request.form["token"]
-    userid = receive_google_token(token)
-    user = User.retrieve_one(id=1)
+    google_id = receive_google_token(token)
+    user = User.retrieve_one(google_id=google_id)
     if user:
         app.logger.info("Found user by google id {}".format(user))
     else:
         app.logger.info("Didn't find user by google id")
-    app.logger.info(userid)
-    return userid
+        User.create(name="Graeme", google_id=google_id, email="this@that.com")
+    app.logger.info(google_id)
+    return google_id
