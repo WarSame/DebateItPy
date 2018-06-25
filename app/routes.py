@@ -28,7 +28,7 @@ def setup():
 @app.route("/")
 def index():
     if "user_id" in session:
-        user = session["user_id"]
+        user = User.retrieve_one(id=session["user_id"])
     else:
         user = None
     return render_template("index.html", user=user)
@@ -105,7 +105,7 @@ def token_signin():
     else:
         app.logger.info("Didn't find user by google id")
         user = User.create(name=user_name, google_id=user_id, email=user_email)
-    session["user_id"] = user_id
+    session["user_id"] = user.id
     app.logger.info(user_id)
     app.logger.info("user_id in session {}".format(user_id))
     return render_template("user.html", user=user)
