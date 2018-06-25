@@ -10,8 +10,13 @@ def receive_google_token(token):
         if idinfo["iss"] not in ["accounts.google.com", "https://accounts.google.com"]:
             raise ValueError("Wrong issuer")
 
-        userid = idinfo["sub"]
-        app.logger.info("Logging user info from google: {}".format(userid))
-        return userid
+        user = dict(
+            user_id=idinfo["sub"],
+            user_email=idinfo["email"],
+            user_name=idinfo["name"]
+        )
+
+        app.logger.info("Logging user info from google: {}".format(user))
+        return user
     except ValueError:
         pass
