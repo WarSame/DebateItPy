@@ -108,4 +108,4 @@ def token_signin():
     session["user_id"] = user.id
     app.logger.info(user_id)
     app.logger.info("user_id in session {}".format(user_id))
-    return render_template("user.html", user=user)
+    return user_name
