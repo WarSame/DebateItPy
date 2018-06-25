@@ -29,14 +29,3 @@ services:
     depends_on:
       - redis
       - db
-
-  test:
-    container_name: test
-    build: .
-    links:
-      - web
-    depends_on:
-      - web
-    volumes:
-    - .:/app
-    command: "python -m unittest discover"

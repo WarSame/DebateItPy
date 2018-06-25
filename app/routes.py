@@ -22,15 +22,15 @@ def initialize_db():
 @app.before_first_request
 def setup():
     initialize_db()
+    session["user_id"] = None
 
 
 @app.route("/")
 def index():
-    user = redis.get("user")
-    if user is None:
-        user = ""
+    if "user_id" in session:
+        user = session["user_id"]
     else:
-        user = user.decode("utf-8")
+        user = None
     return render_template("index.html", user=user)
 
 
@@ -88,7 +88,7 @@ def login():
 
 @app.route("/logout")
 def logout():
-    redis.delete("user")
+    session.pop("user_id", None)
     return redirect("/")
 
 
@@ -105,5 +105,7 @@ def token_signin():
     else:
         app.logger.info("Didn't find user by google id")
         user = User.create(name=user_name, google_id=user_id, email=user_email)
+    session["user_id"] = user_id
     app.logger.info(user_id)
+    app.logger.info("user_id in session {}".format(user_id))
     return render_template("user.html", user=user)
