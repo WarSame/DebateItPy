@@ -7,8 +7,9 @@
         <form class="form-inline">
           <div class="input-group">
             <div class="input-group-prepend">
-              <a class="nav-link dropdown-toggle input-group-text"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search for:</a>
-              <div id="navbar-items" class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link dropdown-toggle input-group-text"  href="#" id="search-dropdown"
+                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search for:</a>
+              <div id="search-items" class="dropdown-menu" aria-labelledby="search-dropdown">
                 <a class="dropdown-item" onClick="setSearchTerm('Community')">Community</a>
                 <a class="dropdown-item" onClick="setSearchTerm('User')">User</a>
                 <a class="dropdown-item" onClick="setSearchTerm('Topic')">Topic</a>
@@ -21,6 +22,16 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="create-dropdown"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Create
+        </a>
+        <div id="create-items" class="dropdown-menu" aria-labelledby="create-dropdown">
+          <a class="dropdown-item" onClick="$.post('/create/community')">Community</a>
+          <a class="dropdown-item" onClick="$.post('/create/debate')">Debate</a>
+        </div>
+      </li>
       {% if user %}
       <li class="nav-item">
         <a class="nav-link" href="/u/{{ user.id }}">{{ user.name }}</a>
