@@ -2,7 +2,7 @@ from app import app
 from flask import render_template, redirect, request, session
 import redis
 from .models import User, Community, Post, Debate
-from .forms import CreateCommunityForm
+from .forms import CreateCommunityForm, CreateDebateForm
 from .oauth import receive_google_token
 from flask_sqlalchemy import SQLAlchemy
 
@@ -81,6 +81,23 @@ def community(community_id=None):
     return render_template("community.html", community=community)
 
 
+@app.route("/d/create", methods=["GET", "POST"])
+def create_debate():
+    app.logger.info("Creating debate")
+    form = CreateDebateForm()
+    if form.validate_on_submit():
+        app.logger.info("Debate form validated")
+        debate_dict = dict()
+        debate_dict["title"] = form.title.data
+        debate_dict["text"] = form.text.data
+        debate_dict["creator_id"] = session["user_id"]
+        debate_dict["community_id"] = form.community_id.data
+        debate = Debate.create(**debate_dict)
+        app.logger.info("Created debate, displaying")
+        return render_template("debate.html", debate=debate)
+    return render_template("create_debate.html", form=form)
+
+
 @app.route("/d", methods=["POST"])
 @app.route("/d/<debate_id>", methods=["GET"])
 def debate(debate_id=None):
@@ -89,7 +106,7 @@ def debate(debate_id=None):
         debate_dict["title"] = request.form["title"]
         debate_dict["text"] = request.form["text"]
         debate_dict["creator_id"] = request.form["creator_id"]
-        debate_dict["communiy_id"] = request.form["community_id"]
+        debate_dict["community_id"] = request.form["community_id"]
         debate = Debate.create(** debate_dict)
     else:
         debate = Debate.retrieve_one(id = debate_id)
