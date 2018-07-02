@@ -94,7 +94,7 @@ def create_debate():
         debate_dict["community_id"] = form.community_id.data
         debate = Debate.create(**debate_dict)
         app.logger.info("Created debate, displaying")
-        return render_template("debate.html", debate=debate)
+        return redirect("/d/{}".format(debate.id))
     return render_template("create_debate.html", form=form)
 
 
