@@ -16,7 +16,7 @@ def receive_google_token(token):
             user_name=idinfo["name"]
         )
 
-        app.logger.info("Logging user info from google: {}".format(user))
+        app.logger.info("User info from google: {}".format(user))
         return user
     except ValueError:
         pass
