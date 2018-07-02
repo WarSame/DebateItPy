@@ -34,7 +34,7 @@ def index():
     return render_template("index.html", user=user)
 
 
-@app.route("/u/", methods=["POST"])
+@app.route("/u", methods=["POST"])
 @app.route("/u/<user_id>", methods=["GET"])
 def user(user_id=None):
     if request.method == "POST":
@@ -48,6 +48,11 @@ def user(user_id=None):
     if user is None:
         return render_template("missing.html")
     return render_template("user.html", user=user)
+
+
+@app.route("/c/create", methods=["GET"])
+def create_community():
+    return render_template("create_community.html")
 
 
 @app.route("/c/", methods=["POST"])
@@ -65,7 +70,7 @@ def community(community_id=None):
     return render_template("community.html", community=community)
 
 
-@app.route("/d/", methods=["POST"])
+@app.route("/d", methods=["POST"])
 @app.route("/d/<debate_id>", methods=["GET"])
 def debate(debate_id=None):
     if request.method == "POST":

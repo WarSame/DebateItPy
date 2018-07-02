@@ -28,8 +28,8 @@
           Create
         </a>
         <div id="create-items" class="dropdown-menu" aria-labelledby="create-dropdown">
-          <a class="dropdown-item" onClick="$.get('/c')">Community</a>
-          <a class="dropdown-item" onClick="$.get('/d')">Debate</a>
+          <a class="dropdown-item" onClick="let response=$.get('/c/create', function(data){$('#content').html(data);});">Community</a>
+          <a class="dropdown-item" onClick="$.get('/create/d')">Debate</a>
         </div>
       </li>
       {% if user %}
