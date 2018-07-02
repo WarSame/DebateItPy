@@ -1,1 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}DebateIt{% endblock %}
+{% block content %}
 <h1>Create community</h1>
+<form action="/c/create" method="post">
+    {{ form.csrf_token }}
+    {{ form.name.label }} {{ form.name(maxlength=80) }}<br>
+    {{ form.description.label }} {{ form.description(maxlength=1000) }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

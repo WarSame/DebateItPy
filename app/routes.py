@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, redirect, request, session
 import redis
 from .models import User, Community, Post, Debate
+from .forms import CreateCommunityForm
 from .oauth import receive_google_token
 from flask_sqlalchemy import SQLAlchemy
 
@@ -50,9 +51,19 @@ def user(user_id=None):
     return render_template("user.html", user=user)
 
 
-@app.route("/c/create", methods=["GET"])
+@app.route("/c/create", methods=["GET", "POST"])
 def create_community():
-    return render_template("create_community.html")
+    app.logger.info("Creating community")
+    form = CreateCommunityForm()
+    if form.validate_on_submit():
+        app.logger.info("Community form validated")
+        community_dict = dict()
+        community_dict["name"] = form.name.data
+        community_dict["description"] = form.description.data
+        community = Community.create(**community_dict)
+        app.logger.info("Created community, displaying")
+        return render_template("community.html", community=community)
+    return render_template("create_community.html", form=form)
 
 
 @app.route("/c/", methods=["POST"])
