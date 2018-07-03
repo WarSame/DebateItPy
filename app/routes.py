@@ -69,6 +69,7 @@ def community(community_id=None):
         community_dict["name"] = request.form["name"]
         community_dict["description"] = request.form["description"]
         community = Community.create(**community_dict)
+        return redirect("/c/{}".format(community.id))
     else:
         community = Community.retrieve_one(id=community_id)
     if community is None:
