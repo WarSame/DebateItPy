@@ -90,7 +90,8 @@ def create_debate():
         debate_dict = dict([("title", form.title.data)
                             , ("text", form.text.data)
                             , ("creator_id", session["user_id"])
-                            , ("community_id", form.community_id.data)])
+                            , ("community_id", form.community_id.data)
+                            ])
         debate = Debate.create(**debate_dict)
         app.logger.info("Created debate, displaying")
         return redirect("/d/{}".format(debate.id))
@@ -135,7 +136,7 @@ def login():
     if request.method == "POST":
         name = request.form["name"]
         user = User.create(name=name)
-        return render_template("user.html", user=user)
+        return redirect("/u/{}".format(user.id))
     else:
         return render_template("login.html")
 
