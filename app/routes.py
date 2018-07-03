@@ -61,16 +61,9 @@ def create_community():
     return render_template("create_community.html", form=form)
 
 
-@app.route("/c/", methods=["POST"])
 @app.route("/c/<community_id>", methods=["GET"])
 def community(community_id=None):
-    if request.method == "POST":
-        community_dict = dict()
-        community_dict["name"] = request.form["name"]
-        community_dict["description"] = request.form["description"]
-        community = Community.create(**community_dict)
-    else:
-        community = Community.retrieve_one(id=community_id)
+    community = Community.retrieve_one(id=community_id)
     if community is None:
         return render_template("missing.html")
     return render_template("community.html", community=community)
@@ -93,18 +86,9 @@ def create_debate():
     return render_template("create_debate.html", form=form)
 
 
-@app.route("/d", methods=["POST"])
 @app.route("/d/<debate_id>", methods=["GET"])
 def debate(debate_id=None):
-    if request.method == "POST":
-        debate_dict = dict()
-        debate_dict["title"] = request.form["title"]
-        debate_dict["text"] = request.form["text"]
-        debate_dict["creator_id"] = request.form["creator_id"]
-        debate_dict["community_id"] = request.form["community_id"]
-        debate = Debate.create(** debate_dict)
-    else:
-        debate = Debate.retrieve_one(id = debate_id)
+    debate = Debate.retrieve_one(id=debate_id)
     if debate is None:
         return render_template("missing.html")
     return render_template("debate.html", debate=debate)
