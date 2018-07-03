@@ -87,11 +87,10 @@ def create_debate():
     form = CreateDebateForm()
     if form.validate_on_submit():
         app.logger.info("Debate form validated")
-        debate_dict = dict()
-        debate_dict["title"] = form.title.data
-        debate_dict["text"] = form.text.data
-        debate_dict["creator_id"] = session["user_id"]
-        debate_dict["community_id"] = form.community_id.data
+        debate_dict = dict([("title", form.title.data)
+                            , ("text", form.text.data)
+                            , ("creator_id", session["user_id"])
+                            , ("community_id", form.community_id.data)])
         debate = Debate.create(**debate_dict)
         app.logger.info("Created debate, displaying")
         return redirect("/d/{}".format(debate.id))
