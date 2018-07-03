@@ -23,16 +23,11 @@ def initialize_db():
 @app.before_first_request
 def setup():
     initialize_db()
-    session["user_id"] = None
 
 
 @app.route("/")
 def index():
-    if "user_id" in session:
-        user = User.retrieve_one(id=session["user_id"])
-    else:
-        user = None
-    return render_template("index.html", user=user)
+    return render_template("index.html")
 
 
 @app.route("/u", methods=["POST"])
@@ -144,6 +139,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop("user_id", None)
+    session.pop("user_name", None)
     return redirect("/")
 
 
@@ -161,6 +157,7 @@ def token_signin():
         app.logger.info("Didn't find user by google id")
         user = User.create(name=user_name, google_id=user_id, email=user_email)
     session["user_id"] = user.id
-    app.logger.info(user_id)
-    app.logger.info("user_id in session {}".format(user_id))
+    session["user_name"] = user.name
+    app.logger.info("User id in session: {}".format(user_id))
+    app.logger.info("User name in session: {}".format(user_name))
     return user_name
