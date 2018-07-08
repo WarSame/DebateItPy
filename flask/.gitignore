@@ -102,5 +102,5 @@ ENV/
 
 #secret files
 .idea/workspace.xml
-/app/client.secrets
-/app/secrets.py
+/flask/app/client.secrets
+/flask/app/secrets.py
