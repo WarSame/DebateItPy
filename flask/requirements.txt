@@ -1,0 +1,14 @@
+WTForms==2.2.1
+Flask-WTF==0.14.2
+Flask==1.0.2
+Redis==2.10.6
+configparser==3.5.0
+psycopg2==2.7.4
+postgres==2.2.1
+SQLAlchemy==1.2.8
+Flask-SQLAlchemy==2.3.2
+google-api-python-client
+google-auth
+requests
+pytest
+Flask-CORS
