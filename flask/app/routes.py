@@ -5,7 +5,7 @@ from .models import User, Community, Post, Debate
 from .forms import CreateCommunityForm, CreateDebateForm
 from .oauth import receive_google_token
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import json
 
 redis = redis.Redis(host="redis", port=6379)
@@ -13,7 +13,6 @@ redis = redis.Redis(host="redis", port=6379)
 
 db = SQLAlchemy(app)
 cors = CORS(app)
-app.config["CORS_HEADERS"] = "Content-Type"
 
 
 def initialize_db():
@@ -35,7 +34,6 @@ def index():
 
 
 @app.route("/test")
-@cross_origin
 def test():
     return json.dumps(dict([("key", "value")]))
 
