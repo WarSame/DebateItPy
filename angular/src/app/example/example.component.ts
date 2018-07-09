@@ -8,13 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ExampleComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    let test = this.http.get("http://localhost:80/test").subscribe(
+    this.http.get('http://localhost:80/test').subscribe(
         data => console.log(data),
         error => console.log(error),
-        () => console.log("done")
+        () => console.log('done')
     );
   }
 

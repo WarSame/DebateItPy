@@ -1,5 +1,13 @@
 version: "2"
 services:
+  angular:
+    container_name: angular
+    build: ./angular
+    ports:
+      - "80:4200"
+    depends_on:
+      - web
+
   redis:
     container_name: redis
     image: redis:latest
@@ -19,13 +27,13 @@ services:
 
   web:
     container_name: web
-    build: .
+    build: ./flask
     volumes:
       - .:/app
     environment:
      - FLASK_DEBUG=1
     ports:
-     - "80:5000"
+     - "5000:5000"
     depends_on:
       - redis
       - db
