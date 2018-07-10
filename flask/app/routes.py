@@ -36,7 +36,7 @@ def index():
 @app.route("/test")
 @cross_origin()
 def test():
-    return json.dumps(dict(("key", "value")))
+    return json.dumps({"key":"value"})
 
 
 @app.route("/u", methods=["POST"])
