@@ -9,7 +9,6 @@ from flask_cors import CORS, cross_origin
 from flask import jsonify
 redis = redis.Redis(host="redis", port=6379)
 
-app.config["CORS_HEADERS"] = "Content-Type"
 db = SQLAlchemy(app)
 cors = CORS(app)
 

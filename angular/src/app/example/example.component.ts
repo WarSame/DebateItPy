@@ -11,7 +11,7 @@ export class ExampleComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:80/test').subscribe(
+    this.http.get('http://localhost:5000/test').subscribe(
         data => console.log(data),
         error => console.log(error),
         () => console.log('done')
