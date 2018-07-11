@@ -6,11 +6,10 @@ from .forms import CreateCommunityForm, CreateDebateForm
 from .oauth import receive_google_token
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
-import json
-
+from flask import jsonify
 redis = redis.Redis(host="redis", port=6379)
 
-
+app.config["CORS_HEADERS"] = "Content-Type"
 db = SQLAlchemy(app)
 cors = CORS(app)
 
@@ -30,13 +29,13 @@ def setup():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return redirect("index.html")
 
 
 @app.route("/test")
-@cross_origin()
 def test():
-    return json.dumps({"key":"value"})
+    response = jsonify({"key": "value"})
+    return response
 
 
 @app.route("/u", methods=["POST"])
