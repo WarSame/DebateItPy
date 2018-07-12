@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SERVER_URL } from '../app.component';
 
 @Component({
   selector: 'app-example',
@@ -11,7 +12,7 @@ export class ExampleComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:5000/test').subscribe(
+    this.http.get(SERVER_URL + '/test').subscribe(
         data => console.log(data),
         error => console.log(error),
         () => console.log('done')

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'DebateIt';
 }
+export let SERVER_URL = 'http://localhost:5000';
