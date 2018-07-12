@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExampleComponent } from './example.component';
+import { TopGeneralFeedComponent } from './top-general-feed.component';
 
-describe('ExampleComponent', () => {
-  let component: ExampleComponent;
-  let fixture: ComponentFixture<ExampleComponent>;
+describe('TopGeneralFeedComponent', () => {
+  let component: TopGeneralFeedComponent;
+  let fixture: ComponentFixture<TopGeneralFeedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExampleComponent ]
+      declarations: [ TopGeneralFeedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExampleComponent);
+    fixture = TestBed.createComponent(TopGeneralFeedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

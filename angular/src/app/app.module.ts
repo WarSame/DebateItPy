@@ -4,11 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ExampleComponent } from './example/example.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { TopGeneralFeedComponent } from './top-general-feed/top-general-feed.component';
+import { TopTargetedFeedComponent } from './top-targeted-feed/top-targeted-feed.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ExampleComponent
+    NavbarComponent,
+    TopGeneralFeedComponent,
+    TopTargetedFeedComponent
   ],
   imports: [
     BrowserModule,
