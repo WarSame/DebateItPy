@@ -1,4 +1,6 @@
 {
     "git.ignoreLimitWarning": true,
-    "python.pythonPath":"~/Documents/PyProjects/DebateIt/flask/venv/bin/python3.5"
+    "python.pythonPath":"~/Documents/PyProjects/DebateIt/flask/venv/bin/python3.5",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false
 }

@@ -5,7 +5,7 @@ from .models import User, Community, Post, Debate
 from .forms import CreateCommunityForm, CreateDebateForm
 from .oauth import receive_google_token
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from flask import jsonify
 redis = redis.Redis(host="redis", port=6379)
 
@@ -83,10 +83,10 @@ def create_debate():
     if form.validate_on_submit():
         app.logger.info("Debate form validated")
         debate_dict = dict([(
-            "title", form.title.data)
-            , ("text", form.text.data)
-            , ("creator_id", session["user_id"])
-            , ("community_id", form.community_id.data)
+            "title", form.title.data),
+            ("text", form.text.data),
+            ("creator_id", session["user_id"]),
+            ("community_id", form.community_id.data)
         ])
         debate = Debate.create(**debate_dict)
         app.logger.info("Created debate, displaying")
