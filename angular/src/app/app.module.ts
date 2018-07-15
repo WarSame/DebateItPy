@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TopGeneralFeedComponent } from './top-general-feed/top-general-feed.component';
 import { TopTargetedFeedComponent } from './top-targeted-feed/top-targeted-feed.component';
+import { MatButtonModule, MatToolbarModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,9 @@ import { TopTargetedFeedComponent } from './top-targeted-feed/top-targeted-feed.
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
