@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TopGeneralFeedComponent } from './top-general-feed/top-general-feed.component';
 import { TopTargetedFeedComponent } from './top-targeted-feed/top-targeted-feed.component';
-import { MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { MatButtonModule, MatToolbarModule } from '@angular/material';
     BrowserModule,
     HttpClientModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
