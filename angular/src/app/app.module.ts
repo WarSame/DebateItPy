@@ -7,8 +7,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TopGeneralFeedComponent } from './top-general-feed/top-general-feed.component';
 import { TopTargetedFeedComponent } from './top-targeted-feed/top-targeted-feed.component';
-import { MatButtonModule, MatToolbarModule, MatIconModule } from '@angular/material';
+
+import { MatButtonModule, MatToolbarModule, MatIconModule, MatMenuModule } from '@angular/material';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faCoffee);
 
 @NgModule({
   declarations: [
@@ -23,7 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
