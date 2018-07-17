@@ -6,6 +6,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TopGeneralFeedComponent } from './top-general-feed/top-general-feed.component';
+
+import { AuthenticationService } from './authentication.service';
+
 import { TopTargetedFeedComponent } from './top-targeted-feed/top-targeted-feed.component';
 
 import { MatButtonModule, MatToolbarModule, MatIconModule, MatMenuModule } from '@angular/material';
@@ -35,7 +38,7 @@ library.add(faCoffee);
     MatMenuModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
