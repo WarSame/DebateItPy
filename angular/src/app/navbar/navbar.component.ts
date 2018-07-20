@@ -15,11 +15,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {}
 
   authenticate() {
-    let result = this.authenticationService.google_login().subscribe(
-      data => console.log(data),
+    this.authenticationService.google_login().subscribe(
+      data => {
+        console.log(data);
+        localStorage.setItem('user_name', data);
+      },
       error => console.log(error)
     );
-    console.log(result);
   }
 
 }
