@@ -15,7 +15,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {}
 
   authenticate() {
-    let result = this.authenticationService.google_login();
+    let result = this.authenticationService.google_login().subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
     console.log(result);
   }
 
