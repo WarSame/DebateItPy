@@ -143,7 +143,7 @@ def token_signin():
     app.logger.info("Token is {}".format(token))
     user_from_google = receive_google_token(token)
     if user_from_google is None:
-        return jsonify({"error": "user not found"}), 404
+        return jsonify({"error": "Google user matching ID not found"}), 404
     user_id = user_from_google["user_id"]
     user_name = user_from_google["user_name"]
     user_email = user_from_google["user_email"]
@@ -153,8 +153,4 @@ def token_signin():
     else:
         app.logger.info("Didn't find user by google id")
         user = User.create(name=user_name, google_id=user_id, email=user_email)
-    session["user_id"] = user.id
-    session["user_name"] = user.name
-    app.logger.info("User id in session: {}".format(user_id))
-    app.logger.info("User name in session: {}".format(user_name))
-    return user_name
+    return jsonify(user)
