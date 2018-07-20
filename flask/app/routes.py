@@ -138,8 +138,12 @@ def logout():
 @app.route("/google/token_signin", methods=["POST"])
 def token_signin():
     json = request.get_json()
+    if not json:
+        return jsonify({"error": "Empty request json"}), 400
     app.logger.info("Request is {}".format(json))
     token = json["token"]
+    if token is None:
+        return jsonify({"error": "Missing token"}), 400
     app.logger.info("Token is {}".format(token))
     user_from_google = receive_google_token(token)
     if user_from_google is None:
