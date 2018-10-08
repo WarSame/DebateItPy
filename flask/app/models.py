@@ -13,9 +13,19 @@ class BaseModel(db.Model):
     __abstract__ = True
     __table_args__ = {"extend_existing": True}
 
-    id = db.Column(db.Integer, primary_key=True)
-    create_date = db.Column(db.DateTime, default=datetime.utcnow())
-    update_date = db.Column(db.DateTime, default=datetime.utcnow(), onupdate=db.func.now())
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+        )
+    create_date = db.Column(
+        db.DateTime,
+        default=datetime.utcnow()
+        )
+    update_date = db.Column(
+        db.DateTime,
+        default=datetime.utcnow(),
+        onupdate=db.func.now()
+        )
 
     @classmethod
     def create(cls, **kwargs):
@@ -27,6 +37,10 @@ class BaseModel(db.Model):
     @classmethod
     def retrieve_one(cls, **kwargs):
         return cls.query.filter_by(**kwargs).first()
+
+    @classmethod
+    def retrieve_some(cls, n, **kwargs):
+        return cls.query.filter_by(**kwargs).limit(n).all()
 
     @classmethod
     def retrieve_all(cls, **kwargs):
@@ -50,9 +64,18 @@ class BaseModel(db.Model):
 class User(BaseModel):
     __tablename__ = "user"
 
-    name = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(80), nullable=False)
-    google_id = db.Column(db.String(100))
+    name = db.Column(
+        db.String(80),
+        unique=True,
+        nullable=False
+        )
+    email = db.Column(
+        db.String(80),
+        nullable=False
+        )
+    google_id = db.Column(
+        db.String(100)
+        )
 
     def __repr__(self):
         return "<User: {0}>".format(self.name)
@@ -61,8 +84,14 @@ class User(BaseModel):
 class Community(BaseModel):
     __tablename__ = "community"
 
-    name = db.Column(db.String(80), unique=True, nullable=False)
-    description = db.Column(db.String(1000))
+    name = db.Column(
+        db.String(80),
+        unique=True,
+        nullable=False
+        )
+    description = db.Column(
+        db.String(1000)
+        )
 
     def __repr__(self):
         return "<Community: {0}>".format(self.name)
@@ -71,12 +100,34 @@ class Community(BaseModel):
 class Debate(BaseModel):
     __tablename__ = "debate"
 
-    title = db.Column(db.String(1000), nullable=False)
-    text = db.Column(db.String(1000000), nullable=False)
-    creator_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    user = db.relationship("User", backref=db.backref("debate", cascade="all,delete"), uselist=False)
-    community_id = db.Column(db.Integer, db.ForeignKey("community.id"), nullable=False)
-    community = db.relationship("Community", backref=db.backref("debate", cascade="all,delete"), uselist=False)
+    title = db.Column(
+        db.String(1000),
+        nullable=False
+        )
+    text = db.Column(
+        db.String(1000000),
+        nullable=False
+        )
+    creator_id = db.Column(
+        db.Integer,
+        db.ForeignKey("user.id"),
+        nullable=False
+        )
+    user = db.relationship(
+        "User",
+        backref=db.backref("debate", cascade="all,delete"),
+        uselist=False
+        )
+    community_id = db.Column(
+        db.Integer,
+        db.ForeignKey("community.id"),
+        nullable=False
+        )
+    community = db.relationship(
+        "Community",
+        backref=db.backref("debate", cascade="all,delete"),
+        uselist=False
+        )
 
     def __repr__(self):
         return "<Debate: {0}>".format(self.title)
@@ -85,12 +136,34 @@ class Debate(BaseModel):
 class Post(BaseModel):
     __tablename__ = "post"
 
-    title = db.Column(db.String(1000), nullable=False)
-    text = db.Column(db.String(1000000), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    user = db.relationship('User', backref=db.backref('post'), uselist=False)
-    debate_id = db.Column(db.Integer, db.ForeignKey("debate.id"), nullable=False)
-    debate = db.relationship("Debate", backref=db.backref("post"), uselist=False)
+    title = db.Column(
+        db.String(1000),
+        nullable=False
+        )
+    text = db.Column(
+        db.String(1000000),
+        nullable=False
+        )
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey('user.id'),
+        nullable=False
+        )
+    user = db.relationship(
+        'User',
+        backref=db.backref('post'),
+        uselist=False
+        )
+    debate_id = db.Column(
+        db.Integer,
+        db.ForeignKey('debate.id'),
+        nullable=False
+        )
+    debate = db.relationship(
+        'Debate',
+        backref=db.backref('post'),
+        uselist=False
+        )
 
     def __repr__(self):
         return "<Post: {0}>".format(self.title)

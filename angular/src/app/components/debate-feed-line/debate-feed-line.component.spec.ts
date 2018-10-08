@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommunitiesComponent } from './communities.component';
+import { DebateFeedLineComponent } from './debate-feed-line.component';
 
-describe('CommunitiesComponent', () => {
-  let component: CommunitiesComponent;
-  let fixture: ComponentFixture<CommunitiesComponent>;
+describe('DebateFeedLineComponent', () => {
+  let component: DebateFeedLineComponent;
+  let fixture: ComponentFixture<DebateFeedLineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommunitiesComponent ]
+      declarations: [ DebateFeedLineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CommunitiesComponent);
+    fixture = TestBed.createComponent(DebateFeedLineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

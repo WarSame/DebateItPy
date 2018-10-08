@@ -19,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { CommunitiesComponent } from './components/communities/communities.component';
+import { DebateFeedLineComponent } from './components/debate-feed-line/debate-feed-line.component';
 
 library.add(faCoffee);
 
@@ -28,7 +29,8 @@ library.add(faCoffee);
     NavbarComponent,
     TopGeneralFeedComponent,
     TopTargetedFeedComponent,
-    CommunitiesComponent
+    CommunitiesComponent,
+    DebateFeedLineComponent
   ],
   imports: [
     BrowserModule,

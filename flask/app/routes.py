@@ -4,26 +4,11 @@ import redis
 from .models import User, Community, Post, Debate
 from .forms import CreateCommunityForm, CreateDebateForm
 from .oauth import receive_google_token
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask import jsonify
+
 redis = redis.Redis(host="redis", port=6379)
-
-db = SQLAlchemy(app)
 cors = CORS(app)
-
-
-def initialize_db():
-    db.init_app(app)
-    with app.app_context():
-        db.metadata.drop_all(bind=db.engine)
-        db.metadata.create_all(bind=db.engine)
-        db.session.commit()
-
-
-@app.before_first_request
-def setup():
-    initialize_db()
 
 
 @app.route("/")
@@ -51,11 +36,6 @@ def user(user_id=None):
     if user is None:
         return render_template("missing.html")
     return render_template("user.html", user=user)
-
-
-@app.route("/c/list")
-def list_communities():
-    return ["this", "that"]
 
 
 @app.route("/c/create", methods=["GET", "POST"])
@@ -105,6 +85,14 @@ def debate(debate_id=None):
     if debate is None:
         return render_template("missing.html")
     return render_template("debate.html", debate=debate)
+
+
+@app.route("/top/d/<count>", methods=["GET"])
+def top_debates(count=0):
+    app.logger.info("Retrieving top " + count + " rows")
+    top_debates = Debate.retrieve_some(count)
+    app.logger.info(top_debates)
+    return top_debates
 
 
 @app.route("/p", methods=["POST"])
