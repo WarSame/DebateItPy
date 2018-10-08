@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d00b6c84-2b2c-4e69-87b0-d3b2f73161e9" name="Default" comment="" />
+    <ignored path="angular/node_modules/" />
+    <ignored path="angular/dist/DebateIt/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="debateit.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flask/debateit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flask/app/routes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flask/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flask/app/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>secrets</find>
+      <find>db</find>
+      <find>5000</find>
+      <find>username</find>
+      <find>requests</find>
+      <find>urlparse</find>
+      <find>login</find>
+      <find>session</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>redis</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/app</dir>
+      <dir>$PROJECT_DIR$/test</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="flask" />
+      </map>
+    </option>
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/client.secrets" />
+        <option value="$PROJECT_DIR$/app/db/__init__.py" />
+        <option value="$PROJECT_DIR$/app/db/db.py" />
+        <option value="$PROJECT_DIR$/app/db/User.py" />
+        <option value="$PROJECT_DIR$/app/User.py" />
+        <option value="$PROJECT_DIR$/app/templates/user.html" />
+        <option value="$PROJECT_DIR$/app/templates/missing.html" />
+        <option value="$PROJECT_DIR$/app/templates/login.html" />
+        <option value="$PROJECT_DIR$/app/config.py" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
+        <option value="$PROJECT_DIR$/app/templates/signup.html" />
+        <option value="$PROJECT_DIR$/app/templates/layout.html" />
+        <option value="$PROJECT_DIR$/app/static/google-auth.js" />
+        <option value="$PROJECT_DIR$/test/__init__.py" />
+        <option value="$PROJECT_DIR$/app/db.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/test/conf.py" />
+        <option value="$PROJECT_DIR$/app/secrets.py" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/app/__init__.py" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/app/templates/index.html" />
+        <option value="$PROJECT_DIR$/test/test_models.py" />
+        <option value="$PROJECT_DIR$/app/static/main.js" />
+        <option value="$PROJECT_DIR$/app/oauth.py" />
+        <option value="$PROJECT_DIR$/app/templates/create_community.html" />
+        <option value="$PROJECT_DIR$/app/models.py" />
+        <option value="$PROJECT_DIR$/app/forms.py" />
+        <option value="$PROJECT_DIR$/app/templates/create_debate.html" />
+        <option value="$PROJECT_DIR$/app/templates/community.html" />
+        <option value="$PROJECT_DIR$/app/templates/debate.html" />
+        <option value="$PROJECT_DIR$/app/templates/navbar.html" />
+        <option value="$PROJECT_DIR$/app/routes.py" />
+        <option value="$PROJECT_DIR$/debateitpy/src/app/app.component.css" />
+        <option value="$PROJECT_DIR$/debateitpy/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/app/app.example.ts" />
+        <option value="$PROJECT_DIR$/flask/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/flask/.gitignore" />
+        <option value="$PROJECT_DIR$/angular/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/angular/src/app/example/example.component.ts" />
+        <option value="$PROJECT_DIR$/flask/debateit.py" />
+        <option value="$PROJECT_DIR$/flask/requirements.txt" />
+        <option value="$PROJECT_DIR$/flask/app/routes.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1572" />
+    <option name="y" value="-4" />
+    <option name="width" value="1529" />
+    <option name="height" value="880" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DebateIt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flask" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DebateIt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flask" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/app/client.secrets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/flask" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/db" />
+      <recent name="$PROJECT_DIR$/app/static" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Docker.DebateItPy">
+    <configuration name="Unnamed" type="BashConfigurationType" factoryName="Bash">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="pytest" />
+      <option name="PARAMETERS" value="" />
+      <module name="" />
+    </configuration>
+    <configuration name="DebateItPy" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="FLASK_DEBUG" />
+                <option name="value" value="1" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="services">
+            <list>
+              <option value="redis" />
+              <option value="web" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+          <option name="startBrowserSettings">
+            <browser url="http://127.0.0.1" />
+          </option>
+        </settings>
+      </deployment>
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="JSONFilePath" value="" />
+          <option name="command" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="imageTag" value="" />
+          <option name="sourceFilePath" value="$PROJECT_DIR$/Dockerfile" />
+          <option name="startBrowserSettings">
+            <browser url="http://127.0.0.1" />
+          </option>
+        </settings>
+      </deployment>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="startBrowserSettings">
+            <browser url="http://127.0.0.1" />
+          </option>
+        </settings>
+      </deployment>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="JSONFilePath" value="" />
+          <option name="buildOnly" value="true" />
+          <option name="command" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="imageTag" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+          <option name="startBrowserSettings">
+            <browser url="http://127.0.0.1" />
+          </option>
+        </settings>
+      </deployment>
+    </configuration>
+    <configuration name="Unittests for test_models.testUser" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="DebateItPy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_models.testUser&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
+    <configuration name="Unittests in /home/graeme/Documents/PyProjects/DebateIt/test/test_models.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="DebateItPy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_models.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <list>
+      <item itemvalue="Bash.Unnamed" />
+      <item itemvalue="Docker.DebateItPy" />
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="Python tests.Unittests for test_models.testUser" />
+      <item itemvalue="Python tests.Unittests in /home/graeme/Documents/PyProjects/DebateIt/test/test_models.py" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Unittests in /home/graeme/Documents/PyProjects/DebateIt/test/test_models.py" />
+        <item itemvalue="Python tests.Unittests for test_models.testUser" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Python tests.Unittests in /home/graeme/Documents/PyProjects/DebateIt/test/test_models.py" />
+        <item itemvalue="Python tests.Unittests for test_models.testUser" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d00b6c84-2b2c-4e69-87b0-d3b2f73161e9" name="Default" comment="" />
+      <created>1528151099110</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1528151099110</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Trying tests, running into problems with db">
+      <created>1529869176881</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1529869176881</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Fixed db config, need to get attribute db for flask app">
+      <created>1529869337471</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1529869337471</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Minimally working testing">
+      <created>1529872105553</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1529872105553</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Ignore secrets.py">
+      <created>1529872186607</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1529872186607</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Refactor of configs to use pyfile">
+      <created>1529872696294</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1529872696294</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Working tests on docker-compose up, but run into username non-unique error and web stopping after tests">
+      <created>1529873706418</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1529873706418</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Working test with db, web does not keep running">
+      <created>1529874782214</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1529874782214</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Possible way to avoid web exiting early">
+      <created>1529877122139</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1529877122139</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Change to discover unit tests">
+      <created>1529881540899</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1529881540899</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Retrieve isn't working">
+      <created>1529882436597</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1529882436597</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Fails when trying to actually print the query.first()">
+      <created>1529883131354</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1529883131354</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Working basic retrieve">
+      <created>1529885928956</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1529885928956</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Working retrieve one">
+      <created>1529886043740</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1529886043740</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Working retrieve one with google id">
+      <created>1529886154676</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1529886154676</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Working retrieve multiple attributes">
+      <created>1529888506022</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1529888506022</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Cleaning up routes, remove original login for oauth version">
+      <created>1529889312004</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1529889312004</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Rename signup to login">
+      <created>1529889505237</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1529889505237</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Working session with user_id">
+      <created>1529890982913</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1529890982913</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Working with id of user">
+      <created>1529891072752</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1529891072752</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Retrieve ones">
+      <created>1529891152658</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1529891152658</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Return user name to js call">
+      <created>1529893217358</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1529893217358</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Working username in nav bar, retrieves for elements by rest">
+      <created>1529894201749</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1529894201749</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Working login/logout">
+      <created>1529894282661</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1529894282661</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Remove print from test">
+      <created>1529894424705</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1529894424705</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Add create to navbar">
+      <created>1529895157562</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1529895157562</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Fixed navbar gets, added debate to routes, cleaned route creates up">
+      <created>1529895864310</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1529895864310</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Fixed navbar gets, added debate to routes, cleaned route creates up">
+      <created>1530551468556</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1530551468556</updated>
+    </task>
+    <task id="LOCAL-00098" summary="SPA for create community. Need to look into front end framework">
+      <created>1530554159121</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1530554159122</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Working create community form, but missing actual community page">
+      <created>1530556999852</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1530556999852</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Working community.html template">
+      <created>1530557106289</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1530557106290</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Working create debate">
+      <created>1530560335204</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1530560335204</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Redirect after creating">
+      <created>1530560426415</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1530560426415</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Reformat dict creation">
+      <created>1530579701484</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1530579701484</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Switch renders to redirects for url clarity">
+      <created>1530579826974</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1530579826974</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Working generalized sessions">
+      <created>1530581740554</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1530581740554</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Redirect on community">
+      <created>1530581819986</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1530581819986</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Undoing previous">
+      <created>1530581845375</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1530581845375</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Seperated create and view">
+      <created>1530581936413</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1530581936413</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Slight neatening">
+      <created>1530746761568</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1530746761568</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Updated gitignore for angular">
+      <created>1530761258319</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1530761258319</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Initial commit for angular">
+      <created>1530761376852</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1530761376852</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Added angular into main repo, removed test from flask">
+      <created>1531077002674</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1531077002675</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Included angular fully">
+      <created>1531077052410</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1531077052410</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Working cross talk">
+      <created>1531078425523</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1531078425524</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Generalized docker-compose, working nginx for frontend">
+      <created>1531104507037</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1531104507037</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Mapped nginx port properly">
+      <created>1531104897898</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1531104897898</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Actually got docker compose building flask">
+      <created>1531195962478</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1531195962479</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Fixed test dict">
+      <created>1531196414847</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1531196414847</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Working cors, js had wrong endpoint">
+      <created>1531282640304</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1531282640304</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 15h 50m 19s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 15h 52m 07s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 15h 52m 19s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 16h 28m 15s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 16h 38m 27s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 16h 48m 06s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 16h 50m 18s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 16h 59m 49s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_test_models_testUser - 2018.06.24 at 19h 02m 16s.xml">
+      <configuration name="Unittests for test_models.testUser" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_models_py - 2018.06.24 at 19h 02m 59s.xml">
+      <configuration name="Unittests in test_models.py" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1664" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24959569" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" sideWeight="0.49865228" weight="0.32991803" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50026953" side_tool="true" weight="0.32991803" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49919137" visible="true" weight="0.32991803" />
+      <window_info anchor="bottom" id="Python Console" order="9" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32991803" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39959016" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49973047" weight="0.32991803" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Remove print from test" />
+    <MESSAGE value="Add create to navbar" />
+    <MESSAGE value="Fixed navbar gets, added debate to routes, cleaned route creates up" />
+    <MESSAGE value="SPA for create community. Need to look into front end framework" />
+    <MESSAGE value="Working create community form, but missing actual community page" />
+    <MESSAGE value="Working community.html template" />
+    <MESSAGE value="Working create debate" />
+    <MESSAGE value="Redirect after creating" />
+    <MESSAGE value="Reformat dict creation" />
+    <MESSAGE value="Switch renders to redirects for url clarity" />
+    <MESSAGE value="Working generalized sessions" />
+    <MESSAGE value="Redirect on community" />
+    <MESSAGE value="Undoing previous" />
+    <MESSAGE value="Seperated create and view" />
+    <MESSAGE value="Slight neatening" />
+    <MESSAGE value="Updated gitignore for angular" />
+    <MESSAGE value="Initial commit for angular" />
+    <MESSAGE value="Added angular into main repo, removed test from flask" />
+    <MESSAGE value="Included angular fully" />
+    <MESSAGE value="Working cross talk" />
+    <MESSAGE value="Generalized docker-compose, working nginx for frontend" />
+    <MESSAGE value="Mapped nginx port properly" />
+    <MESSAGE value="Actually got docker compose building flask" />
+    <MESSAGE value="Fixed test dict" />
+    <MESSAGE value="Working cors, js had wrong endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working cors, js had wrong endpoint" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="5" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test/conf.py" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt" />
+    <entry file="file://$PROJECT_DIR$/debateit.py" />
+    <entry file="file://$PROJECT_DIR$/Dockerfile" />
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/app/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/app/secrets.py" />
+    <entry file="file://$PROJECT_DIR$/app/config.py" />
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/flask/globals.py" />
+    <entry file="file://$PROJECT_DIR$/app/static/google-auth.js" />
+    <entry file="file://$PROJECT_DIR$/test/test_models.py" />
+    <entry file="file://$PROJECT_DIR$/app/templates/missing.html" />
+    <entry file="file://$PROJECT_DIR$/app/oauth.py" />
+    <entry file="file://$PROJECT_DIR$/app/templates/login.html" />
+    <entry file="file://$PROJECT_DIR$/app/templates/create_community.html" />
+    <entry file="file://$PROJECT_DIR$/app/models.py" />
+    <entry file="file://$PROJECT_DIR$/app/forms.py" />
+    <entry file="file://$PROJECT_DIR$/app/templates/navbar.html" />
+    <entry file="file://$PROJECT_DIR$/app/templates/community.html" />
+    <entry file="file://$PROJECT_DIR$/app/templates/index.html" />
+    <entry file="file://$PROJECT_DIR$/tslint.json" />
+    <entry file="file://$PROJECT_DIR$/tsconfig.json" />
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.css" />
+    <entry file="file://$PROJECT_DIR$/.editorconfig" />
+    <entry file="file://$PROJECT_DIR$/src/polyfills.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts" />
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/src/main.ts" />
+    <entry file="file://$PROJECT_DIR$/angular.json" />
+    <entry file="file://$PROJECT_DIR$/debateitpy/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/debateitpy/README.md" />
+    <entry file="file://$PROJECT_DIR$/src/browserslist" />
+    <entry file="file://$PROJECT_DIR$/src/app/app.example.ts" />
+    <entry file="file://$PROJECT_DIR$/app/templates/layout.html" />
+    <entry file="file://$PROJECT_DIR$/app/templates/create_debate.html" />
+    <entry file="file://$PROJECT_DIR$/app/routes.py" />
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts" />
+    <entry file="file://$PROJECT_DIR$/app/templates/debate.html" />
+    <entry file="file://$PROJECT_DIR$/app/static/main.js" />
+    <entry file="file://$PROJECT_DIR$/flask/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/angular.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/docker-compose.yml" />
+    <entry file="file://$PROJECT_DIR$/angular/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/src/app/example/example.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/debateit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/app/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

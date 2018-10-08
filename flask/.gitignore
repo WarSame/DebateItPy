@@ -99,3 +99,8 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#secret files
+.idea/workspace.xml
+/flask/app/client.secrets
+/flask/app/secrets.py

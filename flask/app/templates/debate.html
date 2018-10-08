@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block title %}DebateIt{% endblock %}
+{% block content %}
+<h1>Debate</h1>
+Title: {{ debate.title }}
+Text: {{ debate.text }}
+Community: {{ debate.community_id }}
+Creator: {{ debate.creator_id }}
+{% endblock %}

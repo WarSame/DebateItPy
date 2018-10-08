@@ -1,4 +1,39 @@
-debateit:
-  image: graemecliffe/debateit
-  ports:
-    - 5000:5000
+version: "2"
+services:
+  angular:
+    container_name: angular
+    build: ./angular
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+
+  redis:
+    container_name: redis
+    image: redis:latest
+
+  db:
+    container_name: db
+    image: postgres:latest
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pguser
+      POSTGRES_DB: debateit
+
+  web:
+    container_name: web
+    build: ./flask
+    volumes:
+      - ./flask:/app
+    environment:
+     - FLASK_DEBUG=1
+    ports:
+     - "5000:5000"
+    depends_on:
+      - redis
+      - db
