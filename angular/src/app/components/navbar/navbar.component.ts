@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +20,10 @@ export class NavbarComponent implements OnInit {
         console.log(data);
         localStorage.setItem('user_name', data);
       },
-      error => console.log(error)
+      error => {
+        console.log(error);
+        console.log(error.error);
+      }
     );
   }
 

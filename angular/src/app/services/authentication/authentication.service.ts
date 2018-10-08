@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { SERVER_URL } from './app.component';
+import { SERVER_URL } from '../../app.component';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})

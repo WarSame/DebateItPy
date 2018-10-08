@@ -53,6 +53,11 @@ def user(user_id=None):
     return render_template("user.html", user=user)
 
 
+@app.route("/c/list")
+def list_communities():
+    return ["this", "that"]
+
+
 @app.route("/c/create", methods=["GET", "POST"])
 def create_community():
     app.logger.info("Creating community")
@@ -139,7 +144,8 @@ def logout():
 def token_signin():
     json = request.get_json()
     if not json:
-        return jsonify({"error": "Empty request json"}), 400
+        return jsonify(
+            {"message": "Empty request json"}), 400
     app.logger.info("Request is {}".format(json))
     token = json["token"]
     if token is None:
