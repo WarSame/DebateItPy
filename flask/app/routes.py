@@ -16,12 +16,6 @@ def index():
     return redirect("index.html")
 
 
-@app.route("/test")
-def test():
-    response = jsonify({"key": "value"})
-    return response
-
-
 @app.route("/u", methods=["POST"])
 @app.route("/u/<user_id>", methods=["GET"])
 def user(user_id=None):
@@ -90,8 +84,13 @@ def debate(debate_id=None):
 @app.route("/top/d/<count>", methods=["GET"])
 def top_debates(count=0):
     app.logger.info("Retrieving top " + count + " rows")
-    top_debates = Debate.retrieve_some(count)
-    app.logger.info(top_debates)
+    #top_debates = Debate.retrieve_some(count)
+    top_debates = jsonify(
+        [
+            {"name": "name1", "description": "description1"},
+            {"name": "name2", "description": "description2"}
+            ]
+            )
     return top_debates
 
 

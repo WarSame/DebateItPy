@@ -2,5 +2,15 @@
     "git.ignoreLimitWarning": true,
     "python.pythonPath":"~/Documents/PyProjects/DebateIt/flask/venv/bin/python3.5",
     "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        "./data",
+        "-p",
+        "test*.py"
+    ],
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.unittestEnabled": true
 }
