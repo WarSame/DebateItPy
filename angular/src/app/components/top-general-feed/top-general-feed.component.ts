@@ -7,13 +7,13 @@ import { TopFeedService } from '../../services/top-feed/top-feed.service';
   styleUrls: ['./top-general-feed.component.css']
 })
 export class TopGeneralFeedComponent implements OnInit {
+  top_debates = this.getTopGeneralFeed();
 
   constructor(public topFeedService: TopFeedService) {
     this.topFeedService = topFeedService;
   }
 
   ngOnInit() {
-    this.getTopGeneralFeed();
   }
 
   getTopGeneralFeed() {
@@ -21,6 +21,7 @@ export class TopGeneralFeedComponent implements OnInit {
       data => {
         console.log('Success retrieving top feed ');
         console.log(data);
+        this.top_debates = data;
       },
       error => {
         console.log('Error ');
