@@ -84,14 +84,15 @@ def debate(debate_id=None):
 @app.route("/top/d/<count>", methods=["GET"])
 def top_debates(count=0):
     app.logger.info("Retrieving top " + count + " rows")
-    #top_debates = Debate.retrieve_some(count)
-    top_debates = jsonify(
-        [
-            {"name": "name1", "description": "description1"},
-            {"name": "name2", "description": "description2"}
-            ]
-            )
-    return top_debates
+    top_debates = Debate.retrieve_some(count)
+    print(top_debates)
+    top_debates_json = []
+    for d in top_debates:
+        debate = dict()
+        debate["title"] = d.title
+        debate["text"] = d.text
+        top_debates_json.append(debate)
+    return jsonify(top_debates_json)
 
 
 @app.route("/p", methods=["POST"])
