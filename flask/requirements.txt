@@ -12,3 +12,4 @@ google-auth
 requests
 pytest
 Flask-CORS
+Flask-WTF==0.14.2

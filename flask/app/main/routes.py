@@ -1,9 +1,10 @@
 from flask import render_template, redirect, request, session, current_app
-from .models import User, Community, Post, Debate
-from .forms import CreateCommunityForm, CreateDebateForm
-from .oauth import receive_google_token
+from app.models import User, Community, Post, Debate
+from app.main.forms import CreateCommunityForm, CreateDebateForm
+from app.auth.oauth import receive_google_token
 from flask import jsonify
-from . import cors, redis
+from app import cors, redis
+from app.main import bp
 
 
 @bp.route("/")
@@ -21,7 +22,7 @@ def user(user_id=None):
         user = User.create(**user_dict)
     else:
         user = User.retrieve_one(id=user_id)
-    app.logger.info(user)
+    current_app.logger.info(user)
     if user is None:
         return render_template("missing.html")
     return render_template("user.html", user=user)
@@ -29,15 +30,15 @@ def user(user_id=None):
 
 @bp.route("/c/create", methods=["GET", "POST"])
 def create_community():
-    app.logger.info("Creating community")
+    current_app.logger.info("Creating community")
     form = CreateCommunityForm()
     if form.validate_on_submit():
-        app.logger.info("Community form validated")
+        current_app.logger.info("Community form validated")
         community_dict = dict()
         community_dict["name"] = form.name.data
         community_dict["description"] = form.description.data
         community = Community.create(**community_dict)
-        app.logger.info("Created community, displaying")
+        current_app.logger.info("Created community, displaying")
         return render_template("community.html", community=community)
     return render_template("create_community.html", form=form)
 
@@ -52,10 +53,10 @@ def community(community_id=None):
 
 @bp.route("/d/create", methods=["GET", "POST"])
 def create_debate():
-    app.logger.info("Creating debate")
+    current_app.logger.info("Creating debate")
     form = CreateDebateForm()
     if form.validate_on_submit():
-        app.logger.info("Debate form validated")
+        current_app.logger.info("Debate form validated")
         debate_dict = dict([(
             "title", form.title.data),
             ("text", form.text.data),
@@ -63,7 +64,7 @@ def create_debate():
             ("community_id", form.community_id.data)
         ])
         debate = Debate.create(**debate_dict)
-        app.logger.info("Created debate, displaying")
+        current_app.logger.info("Created debate, displaying")
         return redirect("/d/{}".format(debate.id))
     return render_template("create_debate.html", form=form)
 
@@ -78,9 +79,9 @@ def debate(debate_id=None):
 
 @bp.route("/top/d/<count>", methods=["GET"])
 def top_debates(count=0):
-    app.logger.info("Retrieving top " + count + " rows")
+    current_app.logger.info("Retrieving top " + count + " rows")
     top_debates = Debate.retrieve_some(count)
-    app.logger.info("Retrieved " + top_debates.__sizeof__)
+    current_app.logger.info("Retrieved {} rows".format(len(top_debates)))
     top_debates_json = []
     for d in top_debates:
         debate = dict()
@@ -129,11 +130,11 @@ def token_signin():
     if not json:
         return jsonify(
             {"message": "Empty request json"}), 400
-    app.logger.info("Request is {}".format(json))
+    current_app.logger.info("Request is {}".format(json))
     token = json["token"]
     if token is None:
         return jsonify({"error": "Missing token"}), 400
-    app.logger.info("Token is {}".format(token))
+    current_app.logger.info("Token is {}".format(token))
     user_from_google = receive_google_token(token)
     if user_from_google is None:
         return jsonify({"error": "Google user matching ID not found"}), 404
@@ -142,8 +143,8 @@ def token_signin():
     user_email = user_from_google["user_email"]
     user = User.retrieve_one(google_id=user_id)
     if user:
-        app.logger.info("Found user by google id {}".format(user))
+        current_app.logger.info("Found user by google id {}".format(user))
     else:
-        app.logger.info("Didn't find user by google id")
+        current_app.logger.info("Didn't find user by google id")
         user = User.create(name=user_name, google_id=user_id, email=user_email)
     return jsonify(user)

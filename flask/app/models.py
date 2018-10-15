@@ -1,5 +1,7 @@
+from flask import current_app
 from app import db
 from datetime import datetime
+
 
 user_community_table = db.Table("user_community",
                                 db.metadata,
