@@ -1,5 +1,4 @@
-from flask import render_template, redirect, request, 
-session, current_app, jsonify, abort, get_json
+from flask import render_template, redirect, request, session, current_app, jsonify, abort
 from app.models import User, Community, Post, Debate
 from app.main.forms import CreateCommunityForm, CreateDebateForm
 from app.auth.oauth import receive_google_token
