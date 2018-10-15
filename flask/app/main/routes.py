@@ -1,23 +1,18 @@
-from app import app
-from flask import render_template, redirect, request, session
-import redis
+from flask import render_template, redirect, request, session, current_app
 from .models import User, Community, Post, Debate
 from .forms import CreateCommunityForm, CreateDebateForm
 from .oauth import receive_google_token
-from flask_cors import CORS
 from flask import jsonify
-
-redis = redis.Redis(host="redis", port=6379)
-cors = CORS(app)
+from . import cors, redis
 
 
-@app.route("/")
+@bp.route("/")
 def index():
     return redirect("index.html")
 
 
-@app.route("/u", methods=["POST"])
-@app.route("/u/<user_id>", methods=["GET"])
+@bp.route("/u", methods=["POST"])
+@bp.route("/u/<user_id>", methods=["GET"])
 def user(user_id=None):
     if request.method == "POST":
         user_dict = dict()
@@ -32,7 +27,7 @@ def user(user_id=None):
     return render_template("user.html", user=user)
 
 
-@app.route("/c/create", methods=["GET", "POST"])
+@bp.route("/c/create", methods=["GET", "POST"])
 def create_community():
     app.logger.info("Creating community")
     form = CreateCommunityForm()
@@ -47,7 +42,7 @@ def create_community():
     return render_template("create_community.html", form=form)
 
 
-@app.route("/c/<community_id>", methods=["GET"])
+@bp.route("/c/<community_id>", methods=["GET"])
 def community(community_id=None):
     community = Community.retrieve_one(id=community_id)
     if community is None:
@@ -55,7 +50,7 @@ def community(community_id=None):
     return render_template("community.html", community=community)
 
 
-@app.route("/d/create", methods=["GET", "POST"])
+@bp.route("/d/create", methods=["GET", "POST"])
 def create_debate():
     app.logger.info("Creating debate")
     form = CreateDebateForm()
@@ -73,7 +68,7 @@ def create_debate():
     return render_template("create_debate.html", form=form)
 
 
-@app.route("/d/<debate_id>", methods=["GET"])
+@bp.route("/d/<debate_id>", methods=["GET"])
 def debate(debate_id=None):
     debate = Debate.retrieve_one(id=debate_id)
     if debate is None:
@@ -81,11 +76,11 @@ def debate(debate_id=None):
     return render_template("debate.html", debate=debate)
 
 
-@app.route("/top/d/<count>", methods=["GET"])
+@bp.route("/top/d/<count>", methods=["GET"])
 def top_debates(count=0):
     app.logger.info("Retrieving top " + count + " rows")
     top_debates = Debate.retrieve_some(count)
-    print(top_debates)
+    app.logger.info("Retrieved " + top_debates.__sizeof__)
     top_debates_json = []
     for d in top_debates:
         debate = dict()
@@ -95,8 +90,8 @@ def top_debates(count=0):
     return jsonify(top_debates_json)
 
 
-@app.route("/p", methods=["POST"])
-@app.route("/p/<post_id>", methods=["GET"])
+@bp.route("/p", methods=["POST"])
+@bp.route("/p/<post_id>", methods=["GET"])
 def post(post_id=None):
     if request.method == "POST":
         post_dict = dict()
@@ -111,7 +106,7 @@ def post(post_id=None):
     return render_template("post.html", post=post)
 
 
-@app.route("/login", methods=["GET", "POST"])
+@bp.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         name = request.form["name"]
@@ -121,14 +116,14 @@ def login():
         return render_template("login.html")
 
 
-@app.route("/logout")
+@bp.route("/logout")
 def logout():
     session.pop("user_id", None)
     session.pop("user_name", None)
     return redirect("/")
 
 
-@app.route("/google/token_signin", methods=["POST"])
+@bp.route("/google/token_signin", methods=["POST"])
 def token_signin():
     json = request.get_json()
     if not json:
