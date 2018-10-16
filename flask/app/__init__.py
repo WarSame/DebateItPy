@@ -15,7 +15,7 @@ def create_app():
     app.config.from_object(Config)
 
     db.init_app(app)
-    migrate.init_app(app)
+    migrate.init_app(app, db)
     cors.init_app(app)
 
     from app.auth import bp as auth_bp

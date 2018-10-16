@@ -106,6 +106,10 @@ class Debate(BaseModel):
         db.String(1000),
         nullable=False
         )
+    description = db.Column(
+        db.String(1000),
+        nullable = True
+    )
     text = db.Column(
         db.String(1000000),
         nullable=False
