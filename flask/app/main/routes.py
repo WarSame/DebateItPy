@@ -68,5 +68,6 @@ def top_debates(count=0):
         debate = dict()
         debate["title"] = d.title
         debate["text"] = d.text
+        debate["id"] = d.id
         top_debates_json.append(debate)
     return jsonify(top_debates_json)
