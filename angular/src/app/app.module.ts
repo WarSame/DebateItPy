@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -19,8 +20,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { DebateFeedLineComponent } from './components/debate-feed-line/debate-feed-line.component';
+import { PostComponent } from './components/post/post.component';
 
 library.add(faCoffee);
+
+const appRoutes: Routes = [
+  { path: 'p', component: PostComponent},
+  { path: '', component: TopGeneralFeedComponent}
+];
 
 @NgModule({
   declarations: [
@@ -28,7 +35,8 @@ library.add(faCoffee);
     NavbarComponent,
     TopGeneralFeedComponent,
     TopTargetedFeedComponent,
-    DebateFeedLineComponent
+    DebateFeedLineComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,11 @@ library.add(faCoffee);
     MatIconModule,
     FontAwesomeModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: true}
+    )
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
