@@ -11,7 +11,7 @@ export class TopFeedService {
 
   constructor(private http: HttpClient) {}
 
-  getTopDebates(count: number) {
+  getTopDebates(count: string) {
     return this.http.get<void>(this.TOP_FEED_URL + count, {});
   }
 }

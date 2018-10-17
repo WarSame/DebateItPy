@@ -17,7 +17,7 @@ export class TopGeneralFeedComponent implements OnInit {
   }
 
   getTopGeneralFeed() {
-    this.topFeedService.getTopDebates(5).subscribe(
+    this.topFeedService.getTopDebates('5').subscribe(
       data => {
         console.log('Success retrieving top feed ');
         console.log(data);
