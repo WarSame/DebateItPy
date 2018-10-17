@@ -3,10 +3,10 @@ from app import db
 from datetime import datetime
 
 
-user_community_table = db.Table("user_community",
+user_community_table = db.Table("Users_communities",
                                 db.metadata,
-                                db.Column("user_id", db.Integer, db.ForeignKey("user.id")),
-                                db.Column("community_id", db.Integer, db.ForeignKey("community.id")),
+                                db.Column("user_id", db.Integer, db.ForeignKey("Users.id")),
+                                db.Column("community_id", db.Integer, db.ForeignKey("Communities.id")),
                                 extend_existing=True
                                 )
 
@@ -64,7 +64,7 @@ class BaseModel(db.Model):
 
 
 class User(BaseModel):
-    __tablename__ = "user"
+    __tablename__ = "Users"
 
     name = db.Column(
         db.String(80),
@@ -84,7 +84,7 @@ class User(BaseModel):
 
 
 class Community(BaseModel):
-    __tablename__ = "community"
+    __tablename__ = "Communities"
 
     name = db.Column(
         db.String(80),
@@ -100,7 +100,7 @@ class Community(BaseModel):
 
 
 class Debate(BaseModel):
-    __tablename__ = "debate"
+    __tablename__ = "Debates"
 
     title = db.Column(
         db.String(1000),
@@ -116,22 +116,22 @@ class Debate(BaseModel):
         )
     creator_id = db.Column(
         db.Integer,
-        db.ForeignKey("user.id"),
+        db.ForeignKey("Users.id"),
         nullable=False
         )
     user = db.relationship(
-        "User",
-        backref=db.backref("debate", cascade="all,delete"),
+        "Users",
+        backref=db.backref("Debates", cascade="all,delete"),
         uselist=False
         )
     community_id = db.Column(
         db.Integer,
-        db.ForeignKey("community.id"),
+        db.ForeignKey("Communities.id"),
         nullable=False
         )
     community = db.relationship(
-        "Community",
-        backref=db.backref("debate", cascade="all,delete"),
+        "Communities",
+        backref=db.backref("Debates", cascade="all,delete"),
         uselist=False
         )
 
@@ -140,7 +140,7 @@ class Debate(BaseModel):
 
 
 class Post(BaseModel):
-    __tablename__ = "post"
+    __tablename__ = "Posts"
 
     title = db.Column(
         db.String(1000),
@@ -152,22 +152,22 @@ class Post(BaseModel):
         )
     user_id = db.Column(
         db.Integer,
-        db.ForeignKey('user.id'),
+        db.ForeignKey('Users.id'),
         nullable=False
         )
     user = db.relationship(
-        'User',
-        backref=db.backref('post'),
+        'Users',
+        backref=db.backref('Posts'),
         uselist=False
         )
     debate_id = db.Column(
         db.Integer,
-        db.ForeignKey('debate.id'),
+        db.ForeignKey('Debates.id'),
         nullable=False
         )
     debate = db.relationship(
-        'Debate',
-        backref=db.backref('post'),
+        'Debates',
+        backref=db.backref('Posts'),
         uselist=False
         )
 
