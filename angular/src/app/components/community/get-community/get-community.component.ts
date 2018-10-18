@@ -20,6 +20,7 @@ export class GetCommunityComponent implements OnInit {
     ) {
       this.service = service;
       this.route = route;
+      this.community = new Community('', '');
      }
 
   ngOnInit() {
