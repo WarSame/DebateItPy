@@ -39,24 +39,29 @@ class BaseModel(db.Model):
 
     @classmethod
     def retrieve_one(cls, **kwargs):
+        current_app.logger.info('Retrieving one of {} with args: {}'.format(cls.__name__, kwargs))
         return cls.query.filter_by(**kwargs).first()
 
     @classmethod
     def retrieve_some(cls, n, **kwargs):
+        current_app.logger.info('Retrieving {} of {} with args: {}'.format(n, cls.__name__, kwargs))
         return cls.query.filter_by(**kwargs).limit(n).all()
 
     @classmethod
     def retrieve_all(cls, **kwargs):
+        current_app.logger.info('Retrieving all of {} with args: {}'.format(cls.__name__, kwargs))
         return cls.query.filter_by(**kwargs).all()
 
     @classmethod
     def update(cls, **kwargs):
+        current_app.logger.info('Updating {} with args: {}'.format(cls.__name__, kwargs))
         cls.query.update(**kwargs)
         db.session.commit()
         return kwargs
 
     @classmethod
     def delete(cls, **kwargs):
+        current_app.logger.info('Deleting {} with args: {}'.format(cls.__name__, kwargs))
         cls.query.delete(**kwargs)
         db.session.commit()
 
