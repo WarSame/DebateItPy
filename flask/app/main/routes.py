@@ -24,6 +24,8 @@ def user(user_id=None):
 def community(community_id=None):
     json = request.get_json()
     current_app.logger.info(json)
+    if json is None:
+        return jsonify(success=False)
     if request.method == "POST":
         name = json["name"]
         if Community.retrieve_one(name=name) is not None:

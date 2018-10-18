@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 
@@ -50,7 +50,7 @@ library.add(faCoffee);
     MatMenuModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
