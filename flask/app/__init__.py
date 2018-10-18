@@ -7,7 +7,6 @@ from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
-cors = CORS()
 redis = Redis(host="redis", port=6379)
 
 def create_app():
@@ -16,7 +15,7 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
-    cors.init_app(app)
+    CORS(app)
 
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp)

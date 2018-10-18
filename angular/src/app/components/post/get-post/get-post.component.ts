@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post/post.service';
 
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { switchMap } from 'rxjs/operators';
+import { Post } from '../post';
 
 @Component({
   selector: 'app-post',
@@ -11,25 +12,24 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./get-post.component.css']
 })
 export class GetPostComponent implements OnInit {
-  private post;
+  private post: Post;
 
   constructor(
     public service: PostService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
     ) {
     this.service = service;
   }
 
   ngOnInit() {
-    this.post = this.route.paramMap.pipe(
+    this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getPost(params.get('id'))
       )
     )
     .subscribe(
-      data => {
-        this.post = data;
+      post => {
+        this.post = post;
       },
       error => {
         console.log(error);

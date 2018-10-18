@@ -1,4 +1,5 @@
 <p>
   post works!
 </p>
-<div>{{ post.title }}</div>
+<div *ngIf="post">{{ post.title }}</div>
+<div *ngIf="post">{{ post.description }}</div>

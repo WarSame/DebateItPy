@@ -31,6 +31,7 @@ class BaseModel(db.Model):
 
     @classmethod
     def create(cls, **kwargs):
+        current_app.logger.info('Creating {} with args: {}'.format(cls.__name__, kwargs))
         obj = cls(**kwargs)
         db.session.add(obj)
         db.session.commit()
@@ -120,8 +121,8 @@ class Debate(BaseModel):
         nullable=False
         )
     user = db.relationship(
-        "Users",
-        backref=db.backref("Debates", cascade="all,delete"),
+        "User",
+        backref=db.backref("Debate", cascade="all,delete"),
         uselist=False
         )
     community_id = db.Column(
@@ -130,8 +131,8 @@ class Debate(BaseModel):
         nullable=False
         )
     community = db.relationship(
-        "Communities",
-        backref=db.backref("Debates", cascade="all,delete"),
+        "Community",
+        backref=db.backref("Debate", cascade="all,delete"),
         uselist=False
         )
 
@@ -156,8 +157,8 @@ class Post(BaseModel):
         nullable=False
         )
     user = db.relationship(
-        'Users',
-        backref=db.backref('Posts'),
+        'User',
+        backref=db.backref('Post'),
         uselist=False
         )
     debate_id = db.Column(
@@ -166,8 +167,8 @@ class Post(BaseModel):
         nullable=False
         )
     debate = db.relationship(
-        'Debates',
-        backref=db.backref('Posts'),
+        'Debate',
+        backref=db.backref('Post'),
         uselist=False
         )
 

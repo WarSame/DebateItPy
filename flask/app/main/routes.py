@@ -2,7 +2,7 @@ from flask import render_template, redirect, request, session, current_app, json
 from app.models import User, Community, Post, Debate
 from app.main.forms import CreateCommunityForm, CreateDebateForm
 from app.auth.oauth import receive_google_token
-from app import cors, redis
+from app import redis
 from app.main import bp
 
 
@@ -19,17 +19,21 @@ def user(user_id=None):
     return user
 
 
-@bp.route("/c/", methods=["POST"])
+@bp.route("/c", methods=["POST"])
 @bp.route("/c/<community_id>", methods=["GET"])
 def community(community_id=None):
+    json = request.get_json()
+    current_app.logger.info(json)
     if request.method == "POST":
-        Community.create(**request.get_json)
-        return 200
+        Community.create(name=json["name"], description=json["description"])
+        return jsonify(success=True)
     community = Community.retrieve_one(id=community_id)
     current_app.logger.info(community)
     if community is None:
         return abort(404)
-    return community
+    response = jsonify(community)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 @bp.route("/d/", methods=["POST"])

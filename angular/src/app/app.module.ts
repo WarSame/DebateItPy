@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 
@@ -21,6 +22,9 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { DebateFeedLineComponent } from './components/debate-feed-line/debate-feed-line.component';
 import { GetPostComponent } from './components/post/get-post/get-post.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CreatePostComponent } from './components/post/create-post/create-post.component';
+import { CreateCommunityComponent } from './components/community/create-community/create-community.component';
+import { GetCommunityComponent } from './components/community/get-community/get-community.component';
 
 library.add(faCoffee);
 
@@ -31,7 +35,10 @@ library.add(faCoffee);
     TopGeneralFeedComponent,
     TopTargetedFeedComponent,
     DebateFeedLineComponent,
-    GetPostComponent
+    GetPostComponent,
+    CreatePostComponent,
+    CreateCommunityComponent,
+    GetCommunityComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,8 @@ library.add(faCoffee);
     FontAwesomeModule,
     MatMenuModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
