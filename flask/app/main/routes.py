@@ -25,7 +25,10 @@ def community(community_id=None):
     json = request.get_json()
     current_app.logger.info(json)
     if request.method == "POST":
-        Community.create(name=json["name"], description=json["description"])
+        name = json["name"]
+        if Community.retrieve_one(name=name) is not None:
+            return jsonify(success=False)
+        Community.create(name=name, description=json["description"])
         return jsonify(success=True)
     community = Community.retrieve_one(id=community_id)
     current_app.logger.info(community)

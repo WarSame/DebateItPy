@@ -22,7 +22,7 @@ export class CreateCommunityComponent implements OnInit {
   }
 
   createCommunity() {
-    this.community = new Community('graeme4', 'graeme3');
+    this.community = new Community('graeme5', 'graeme3');
     this.service.createCommunity(this.community).subscribe(
       data => {
         console.log(data);
