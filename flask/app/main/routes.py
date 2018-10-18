@@ -19,26 +19,28 @@ def user(user_id=None):
     return user
 
 
-@bp.route("/c", methods=["POST"])
 @bp.route("/c/<community_id>", methods=["GET"])
-def community(community_id=None):
-    json = request.get_json()
-    current_app.logger.info(json)
-    if json is None:
-        return jsonify(success=False)
-    if request.method == "POST":
-        name = json["name"]
-        if Community.retrieve_one(name=name) is not None:
-            return jsonify(success=False)
-        Community.create(name=name, description=json["description"])
-        return jsonify(success=True)
+def get_community(community_id=None):
     community = Community.retrieve_one(id=community_id)
     current_app.logger.info(community)
     if community is None:
         return abort(404)
-    response = jsonify(community)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    community_response = dict()
+    community_response['name'] = community.name
+    community_response['description'] = community.description
+    response = jsonify(community_response)
     return response
+
+
+@bp.route("/c", methods=["POST"])
+def create_community():
+    json = request.get_json()
+    current_app.logger.info(json)
+    name = json["name"]
+    if Community.retrieve_one(name=name) is not None:
+        return jsonify(success=False, reason='Community already exists')
+    Community.create(name=name, description=json["description"])
+    return jsonify(success=True)
 
 
 @bp.route("/d/", methods=["POST"])
