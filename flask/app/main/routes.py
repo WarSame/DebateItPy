@@ -51,10 +51,8 @@ def get_all_communities():
 def create_community():
     json = request.get_json()
     current_app.logger.info(json)
-    community = CommunitySchema().load(json).data
-    if Community.retrieve_one(name=community.name) is not None:
+    if Community.retrieve_one(name=json["name"]) is not None:
         return jsonify(success=False, reason='Community already exists')
-    current_app.logger.info(community)
     result = Community.create(**json)
     result_json = CommunitySchema().dump(result).data
     return jsonify(result_json)
