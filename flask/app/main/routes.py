@@ -4,7 +4,7 @@ from app.main.forms import CreateCommunityForm, CreateDebateForm
 from app.auth.oauth import receive_google_token
 from app import redis
 from app.main import bp
-from app.main.views import CommunitySchema, UserSchema
+from app.views import CommunitySchema, UserSchema
 
 
 @bp.route("/api/u/", methods=["POST"])
@@ -37,8 +37,7 @@ def get_specific_community(community_id=None):
     current_app.logger.info(community)
     if community is None:
         return abort(404)
-    community_schema = CommunitySchema()
-    community_json = community_schema.dump(community).data
+    community_json = CommunitySchema().dump(community).data
     current_app.logger.info(community_json)
     return jsonify(community_json)
 
@@ -52,11 +51,13 @@ def get_all_communities():
 def create_community():
     json = request.get_json()
     current_app.logger.info(json)
-    community = CommunitySchema().load(json)
+    community = CommunitySchema().load(json).data
     if Community.retrieve_one(name=community.name) is not None:
         return jsonify(success=False, reason='Community already exists')
-    Community.create(**community)
-    return jsonify(success=True)
+    current_app.logger.info(community)
+    result = Community.create(**json)
+    result_json = CommunitySchema().dump(result).data
+    return jsonify(result_json)
 
 
 @bp.route("/api/d/", methods=["POST"])
