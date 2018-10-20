@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TopFeedService {
-  private TOP_FEED_URL = SERVER_URL + '/top/d/';
+  private TOP_FEED_URL = SERVER_URL + '/api/top/d/';
   private TAILORED_FEED_URL = SERVER_URL + '/tailored/d';
 
   constructor(private http: HttpClient) {}

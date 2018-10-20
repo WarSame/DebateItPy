@@ -4,11 +4,11 @@ from app.main.forms import CreateCommunityForm, CreateDebateForm
 from app.auth.oauth import receive_google_token
 from app import redis
 from app.main import bp
+from app.main.views import CommunitySchema, UserSchema
 
 
-@bp.route("/u", methods=["POST"])
-@bp.route("/u/<user_id>", methods=["GET"])
-def user(user_id=None):
+@bp.route("/api/u/", methods=["POST"])
+def create_user(user_id=None):
     if request.method == "POST":
         user = User.create(**request.get_json)
         return 200
@@ -19,20 +19,36 @@ def user(user_id=None):
     return user
 
 
-@bp.route("/c/<community_id>", methods=["GET"])
-def get_community(community_id=None):
+@bp.route("/api/u/<user_id>", methods=["GET"])
+def get_user(user_id=None):
+    if request.method == "POST":
+        user = User.create(**request.get_json)
+        return 200
+    user = User.retrieve_one(id=user_id)
+    current_app.logger.info(user)
+    if user is None:
+        return abort(404)
+    return user
+
+
+@bp.route("/api/c/<community_id>", methods=["GET"])
+def get_specific_community(community_id=None):
     community = Community.retrieve_one(id=community_id)
     current_app.logger.info(community)
     if community is None:
         return abort(404)
-    community_response = dict()
-    community_response['name'] = community.name
-    community_response['description'] = community.description
-    response = jsonify(community_response)
-    return response
+    community_schema = CommunitySchema()
+    community_json = community_schema.dump(community).data
+    current_app.logger.info(community_json)
+    return jsonify(community_json)
 
 
-@bp.route("/c", methods=["POST"])
+@bp.route("/api/c", methods=["GET"])
+def get_all_communities():
+    return None
+
+
+@bp.route("/api/c", methods=["POST"])
 def create_community():
     json = request.get_json()
     current_app.logger.info(json)
@@ -43,8 +59,8 @@ def create_community():
     return jsonify(success=True)
 
 
-@bp.route("/d/", methods=["POST"])
-@bp.route("/d/<debate_id>", methods=["GET"])
+@bp.route("/api/d/", methods=["POST"])
+@bp.route("/api/d/<debate_id>", methods=["GET"])
 def debate(debate_id=None):
     if request.method == "POST":
         Debate.create(**request.get_json)
@@ -56,8 +72,8 @@ def debate(debate_id=None):
     return debate
 
 
-@bp.route("/p", methods=["POST"])
-@bp.route("/p/<post_id>", methods=["GET"])
+@bp.route("/api/p/", methods=["POST"])
+@bp.route("/api/p/<post_id>", methods=["GET"])
 def post(post_id=None):
     if request.method == "POST":
         post = Post.create(**request.get_json)
@@ -69,7 +85,7 @@ def post(post_id=None):
     return post
 
 
-@bp.route("/top/d/<count>", methods=["GET"])
+@bp.route("/api/top/d/<count>", methods=["GET"])
 def top_debates(count=0):
     current_app.logger.info("Retrieving top " + count + " rows")
     top_debates = Debate.retrieve_some(count)
