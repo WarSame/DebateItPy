@@ -11,8 +11,8 @@ from app.views import CommunitySchema, UserSchema
 def create_user(user_id=None):
     json = request.get_json()
     current_app.logger.info(json)
-    if User.retrieve_one(username=json["username"]) is not None:
-        return jsonify(success=False, reason='User with that username already exists')
+    if User.retrieve_one(name=json["name"]) is not None:
+        return jsonify(success=False, reason='User with that name already exists')
     user = User.create(**json)
     user_json = UserSchema().dump(result).data
     return jsonify(user_json)

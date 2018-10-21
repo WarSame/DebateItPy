@@ -16,6 +16,6 @@ export class PostService {
   }
 
   createPost(post: Post) {
-    return this.http.post<void>(this.POST_URL, post);
+    return this.http.post(this.POST_URL, post);
   }
 }

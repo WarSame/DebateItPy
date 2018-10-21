@@ -25,6 +25,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { CreatePostComponent } from './components/post/create-post/create-post.component';
 import { CreateCommunityComponent } from './components/community/create-community/create-community.component';
 import { GetCommunityComponent } from './components/community/get-community/get-community.component';
+import { GetUserComponent } from './components/user/get-user/get-user.component';
+import { CreateUserComponent } from './components/user/create-user/create-user.component';
+import { GetDebateComponent } from './components/debate/get-debate/get-debate.component';
+import { CreateDebateComponent } from './components/debate/create-debate/create-debate.component';
 
 library.add(faCoffee);
 
@@ -38,7 +42,11 @@ library.add(faCoffee);
     GetPostComponent,
     CreatePostComponent,
     CreateCommunityComponent,
-    GetCommunityComponent
+    GetCommunityComponent,
+    GetUserComponent,
+    CreateUserComponent,
+    GetDebateComponent,
+    CreateDebateComponent
   ],
   imports: [
     BrowserModule,

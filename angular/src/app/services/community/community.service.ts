@@ -15,6 +15,6 @@ export class CommunityService {
   }
 
   createCommunity(community: Community) {
-    return this.http.post<void>(this.COMMUNITY_URL, community, {});
+    return this.http.post(this.COMMUNITY_URL, community, {});
   }
 }
