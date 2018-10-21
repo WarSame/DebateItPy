@@ -7,11 +7,11 @@ import { Community } from 'src/app/components/community/community';
   providedIn: 'root'
 })
 export class CommunityService {
-  private COMMUNITY_URL = SERVER_URL + '/api/c';
+  private COMMUNITY_URL = SERVER_URL + '/api/c/';
   constructor(private http: HttpClient) {}
 
   getCommunity(id: string) {
-    return this.http.get<Community>(this.COMMUNITY_URL + '/' + id, {});
+    return this.http.get<Community>(this.COMMUNITY_URL + id, {});
   }
 
   createCommunity(community: Community) {

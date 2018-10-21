@@ -1,9 +1,13 @@
 export class Post {
     constructor(
         public title: string,
-        public description: string
+        public text: string,
+        public user_id: string,
+        public debate_id: string
     ) {
         this.title = title;
-        this.description = description;
+        this.text = text;
+        this.user_id = user_id;
+        this.debate_id = debate_id;
     }
 }

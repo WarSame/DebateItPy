@@ -7,12 +7,12 @@ import { Post } from 'src/app/components/post/post';
   providedIn: 'root'
 })
 export class PostService {
-  private POST_URL = SERVER_URL + '/p';
+  private POST_URL = SERVER_URL + '/api/p/';
 
   constructor(private http: HttpClient) {}
 
   getPost(id: string) {
-    return this.http.get<Post>(this.POST_URL + '/' + id, {});
+    return this.http.get<Post>(this.POST_URL + id, {});
   }
 
   createPost(post: Post) {
