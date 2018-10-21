@@ -16,6 +16,6 @@ export class DebateService {
   }
 
   createDebate(debate: Debate) {
-    return this.http.post(this.DEBATE_URL, debate);
+    return this.http.post(this.DEBATE_URL, debate, {});
   }
 }

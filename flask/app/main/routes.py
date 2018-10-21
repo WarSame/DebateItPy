@@ -4,7 +4,7 @@ from app.main.forms import CreateCommunityForm, CreateDebateForm
 from app.auth.oauth import receive_google_token
 from app import redis
 from app.main import bp
-from app.views import CommunitySchema, UserSchema
+from app.views import CommunitySchema, UserSchema, DebateSchema, PostSchema
 
 
 @bp.route("/api/u/", methods=["POST"])
@@ -40,7 +40,7 @@ def get_specific_community(community_id=None):
     return jsonify(community_json)
 
 
-@bp.route("/api/c", methods=["POST"])
+@bp.route("/api/c/", methods=["POST"])
 def create_community():
     json = request.get_json()
     current_app.logger.info(json)
@@ -66,8 +66,6 @@ def get_debate(debate_id=None):
 def create_debate():
     json = request.get_json()
     current_app.logger.info(json)
-    if Debate.retrieve_one(name=json["name"]) is not None:
-        return jsonify(success=False, reason='Debate with that name already exists')
     debate = Debate.create(**json)
     debate_json = DebateSchema().dump(debate).data
     return jsonify(debate_json)
