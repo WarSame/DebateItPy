@@ -8,7 +8,7 @@ class CommunitySchema(ma.ModelSchema):
 
 class UserSchema(ma.ModelSchema):
     class Meta:
-        fields = ('name', 'id')
+        fields = ('name', 'id', 'email')
         model = User
 
 class DebateSchema(ma.ModelSchema):

@@ -7,12 +7,12 @@ import { User } from 'src/app/components/user/user';
   providedIn: 'root'
 })
 export class UserService {
-  private USER_URL = SERVER_URL + '/api/u';
+  private USER_URL = SERVER_URL + '/api/u/';
 
   constructor(private http: HttpClient) { }
 
   getUser(id: string) {
-    return this.http.get<User>(this.USER_URL, {});
+    return this.http.get<User>(this.USER_URL + id, {});
   }
 
   createUser(user: User) {
