@@ -12,7 +12,7 @@ import { CreateUserComponent } from './components/user/create-user/create-user.c
 import { GetUserComponent } from './components/user/get-user/get-user.component';
 import { CreateDebateComponent } from './components/debate/create-debate/create-debate.component';
 import { GetDebateComponent } from './components/debate/get-debate/get-debate.component';
-
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const appRoutes: Routes = [
@@ -24,7 +24,8 @@ const appRoutes: Routes = [
   { path: 'p/:id', component: GetPostComponent},
   { path: 'c', component: CreateCommunityComponent},
   { path: 'c/:id', component: GetCommunityComponent},
-  { path: '', component: TopGeneralFeedComponent}
+  { path: '', component: TopGeneralFeedComponent},
+  { path: '404', component: NotFoundComponent}
 ];
 
 @NgModule({

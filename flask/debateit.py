@@ -1,5 +1,6 @@
 from app import create_app, db
 from app.models import User, Debate, Post, Community
+from app.views import UserSchema, DebateSchema, PostSchema, CommunitySchema
 
 
 app = create_app()
@@ -12,7 +13,11 @@ def make_shell_context():
         'User': User,
         'Debate': Debate,
         'Post': Post,
-        'Community': Community
+        'Community': Community,
+        'UserSchema': UserSchema,
+        'DebateSchema': DebateSchema,
+        'PostSchema': PostSchema,
+        'CommunitySchema': CommunitySchema,
     }
 
 

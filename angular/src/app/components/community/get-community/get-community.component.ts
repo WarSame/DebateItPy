@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CommunityService } from 'src/app/services/community/community.service';
 import { Community } from '../community';
 import { switchMap } from 'rxjs/operators';
@@ -13,14 +13,17 @@ export class GetCommunityComponent implements OnInit {
   private route: ActivatedRoute;
   private service: CommunityService;
   private community: Community;
+  private router: Router;
 
   constructor(
     route: ActivatedRoute,
-    service: CommunityService
+    service: CommunityService,
+    router: Router
     ) {
       this.service = service;
       this.route = route;
       this.community = new Community('', '');
+      this.router = router;
      }
 
   ngOnInit() {
@@ -36,6 +39,7 @@ export class GetCommunityComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.router.navigate(['404']);
       });
   }
 

@@ -29,6 +29,7 @@ import { GetUserComponent } from './components/user/get-user/get-user.component'
 import { CreateUserComponent } from './components/user/create-user/create-user.component';
 import { GetDebateComponent } from './components/debate/get-debate/get-debate.component';
 import { CreateDebateComponent } from './components/debate/create-debate/create-debate.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 library.add(faCoffee);
 
@@ -46,7 +47,8 @@ library.add(faCoffee);
     GetUserComponent,
     CreateUserComponent,
     GetDebateComponent,
-    CreateDebateComponent
+    CreateDebateComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

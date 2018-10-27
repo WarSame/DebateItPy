@@ -21,11 +21,12 @@ class BaseModel(db.Model):
         )
     create_date = db.Column(
         db.DateTime,
-        default=datetime.utcnow()
+        default=datetime.utcnow
         )
     update_date = db.Column(
         db.DateTime,
-        default=datetime.utcnow(),
+        default=datetime.utcnow,
+        index=True,
         onupdate=db.func.now()
         )
 
@@ -84,6 +85,11 @@ class User(BaseModel):
     google_id = db.Column(
         db.String(100)
         )
+    debates = db.relationship(
+        "Debate",
+        backref=db.backref("creator", cascade="all,delete"),
+        uselist=False
+    )
 
     def __repr__(self):
         return "<User: {0}>".format(self.name)
@@ -100,6 +106,11 @@ class Community(BaseModel):
     description = db.Column(
         db.String(1000)
         )
+    debates = db.relationship(
+        "Debate",
+        backref=db.backref("community", cascade="all,delete"),
+        uselist=False
+    )
 
     def __repr__(self):
         return "<Community: {0}>".format(self.name)
@@ -125,21 +136,16 @@ class Debate(BaseModel):
         db.ForeignKey("Users.id"),
         nullable=False
         )
-    user = db.relationship(
-        "User",
-        backref=db.backref("Debate", cascade="all,delete"),
-        uselist=False
-        )
     community_id = db.Column(
         db.Integer,
         db.ForeignKey("Communities.id"),
         nullable=False
         )
-    community = db.relationship(
-        "Community",
+    posts = db.relationship(
+        "Post",
         backref=db.backref("Debate", cascade="all,delete"),
         uselist=False
-        )
+    )
 
     def __repr__(self):
         return "<Debate: {0}>".format(self.title)
@@ -161,20 +167,10 @@ class Post(BaseModel):
         db.ForeignKey('Users.id'),
         nullable=False
         )
-    user = db.relationship(
-        'User',
-        backref=db.backref('Post'),
-        uselist=False
-        )
     debate_id = db.Column(
         db.Integer,
         db.ForeignKey('Debates.id'),
         nullable=False
-        )
-    debate = db.relationship(
-        'Debate',
-        backref=db.backref('Post'),
-        uselist=False
         )
 
     def __repr__(self):
