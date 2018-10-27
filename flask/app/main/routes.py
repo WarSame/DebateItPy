@@ -96,5 +96,6 @@ def top_debates(count=0):
     current_app.logger.info("Retrieving top " + count + " rows")
     top_debates = Debate.retrieve_some(count)
     current_app.logger.info("Retrieved {} rows".format(len(top_debates)))
-    top_debates_json = UserSchema(many=True).dump(top_debates).data
+    top_debates_json = DebateSchema(many=True).dump(top_debates).data
+    current_app.logger.info("JSON is {}".format(top_debates_json))
     return jsonify(top_debates_json)
