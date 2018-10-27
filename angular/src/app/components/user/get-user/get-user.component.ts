@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
-import { ParamMap, ActivatedRoute } from '@angular/router';
+import { ParamMap, ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import { User } from '../user';
 
@@ -10,16 +10,13 @@ import { User } from '../user';
   styleUrls: ['./get-user.component.css']
 })
 export class GetUserComponent implements OnInit {
-  private route: ActivatedRoute;
-  private service: UserService;
   private user: User;
 
   constructor(
-    route: ActivatedRoute,
-    service: UserService
+    private route: ActivatedRoute,
+    private service: UserService,
+    private router: Router
   ) {
-    this.route = route;
-    this.service = service;
     this.user = new User('', '');
   }
 
@@ -36,6 +33,7 @@ export class GetUserComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.router.navigate(['404']);
       });
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post/post.service';
 
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { switchMap } from 'rxjs/operators';
 import { Post } from '../post';
@@ -15,10 +15,11 @@ export class GetPostComponent implements OnInit {
   private post: Post;
 
   constructor(
-    public service: PostService,
-    private route: ActivatedRoute
+    private service: PostService,
+    private route: ActivatedRoute,
+    private router: Router
     ) {
-    this.service = service;
+      this.post = new Post('', '', '', '');
   }
 
   ngOnInit() {
@@ -30,9 +31,11 @@ export class GetPostComponent implements OnInit {
     .subscribe(
       post => {
         this.post = post;
+        console.log(post);
       },
       error => {
         console.log(error);
+        this.router.navigate(['404']);
       });
   }
 

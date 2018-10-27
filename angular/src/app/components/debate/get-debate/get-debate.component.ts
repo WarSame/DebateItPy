@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { DebateService } from 'src/app/services/debate/debate.service';
 import { Debate } from '../debate';
 import { switchMap } from 'rxjs/operators';
@@ -10,16 +10,12 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./get-debate.component.css']
 })
 export class GetDebateComponent implements OnInit {
-  private route: ActivatedRoute;
-  private service: DebateService;
   private debate: Debate;
-
   constructor(
-    route: ActivatedRoute,
-    service: DebateService
+    private route: ActivatedRoute,
+    private service: DebateService,
+    private router: Router
     ) {
-      this.service = service;
-      this.route = route;
       this.debate = new Debate('', '', '', '', '');
      }
 
@@ -36,6 +32,7 @@ export class GetDebateComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.router.navigate(['404']);
       });
   }
 }

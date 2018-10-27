@@ -10,20 +10,14 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./get-community.component.css']
 })
 export class GetCommunityComponent implements OnInit {
-  private route: ActivatedRoute;
-  private service: CommunityService;
   private community: Community;
-  private router: Router;
 
   constructor(
-    route: ActivatedRoute,
-    service: CommunityService,
-    router: Router
+    private route: ActivatedRoute,
+    private service: CommunityService,
+    private router: Router
     ) {
-      this.service = service;
-      this.route = route;
       this.community = new Community('', '');
-      this.router = router;
      }
 
   ngOnInit() {
