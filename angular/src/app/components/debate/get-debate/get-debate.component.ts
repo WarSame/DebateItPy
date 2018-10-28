@@ -34,9 +34,9 @@ export class GetDebateComponent implements OnInit {
     .subscribe(
       debate => {
         this.debate = debate;
-        console.log(this.debate);
-        this.post_ids = this.debate.posts;
-        console.log(this.post_ids);
+        console.log('Debate: ' + this.debate);
+        console.log('Posts: ' + this.debate.posts);
+        this.posts = this.debate.posts;
       },
       error => {
         console.log(error);

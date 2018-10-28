@@ -1,3 +1,5 @@
+import { Post } from 'src/app/components/post/post';
+
 export class Debate {
     constructor(
         public title: string,
@@ -5,7 +7,7 @@ export class Debate {
         public text: string,
         public creator_id: string,
         public community_id: string,
-        public posts: number[]
+        public posts: Post[]
     ) {
     }
 }
