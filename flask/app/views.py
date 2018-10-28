@@ -13,7 +13,7 @@ class UserSchema(ma.ModelSchema):
 
 class DebateSchema(ma.ModelSchema):
     class Meta:
-        fields = ('id', 'title', 'text', 'description', 'creator_id', 'community_id')
+        fields = ('id', 'title', 'text', 'description', 'creator_id', 'community_id', 'posts')
         model = Debate
 
 class PostSchema(ma.ModelSchema):

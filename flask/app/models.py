@@ -87,8 +87,8 @@ class User(BaseModel):
         )
     debates = db.relationship(
         "Debate",
-        backref=db.backref("creator", cascade="all,delete"),
-        uselist=False
+        backref="creator",
+        lazy="dynamic"
     )
 
     def __repr__(self):
@@ -108,8 +108,8 @@ class Community(BaseModel):
         )
     debates = db.relationship(
         "Debate",
-        backref=db.backref("community", cascade="all,delete"),
-        uselist=False
+        backref="community",
+        lazy="dynamic"
     )
 
     def __repr__(self):
@@ -143,8 +143,8 @@ class Debate(BaseModel):
         )
     posts = db.relationship(
         "Post",
-        backref=db.backref("Debate", cascade="all,delete"),
-        uselist=False
+        backref="debate",
+        lazy="dynamic"
     )
 
     def __repr__(self):
