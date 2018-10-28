@@ -17,7 +17,7 @@ def make_shell_context():
         'UserSchema': UserSchema,
         'DebateSchema': DebateSchema,
         'PostSchema': PostSchema,
-        'CommunitySchema': CommunitySchema,
+        'CommunitySchema': CommunitySchema
     }
 
 

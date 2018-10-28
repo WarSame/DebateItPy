@@ -3,6 +3,8 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { DebateService } from 'src/app/services/debate/debate.service';
 import { Debate } from '../debate';
 import { switchMap } from 'rxjs/operators';
+import { Post } from 'src/app/components/post/post';
+import { PostService } from 'src/app/services/post/post.service';
 
 @Component({
   selector: 'app-get-debate',
@@ -11,12 +13,16 @@ import { switchMap } from 'rxjs/operators';
 })
 export class GetDebateComponent implements OnInit {
   private debate: Debate;
+  private post_ids: number[];
+  private posts: Post[];
+
   constructor(
     private route: ActivatedRoute,
     private service: DebateService,
-    private router: Router
+    private router: Router,
+    private post_service: PostService
     ) {
-      this.debate = new Debate('', '', '', '', '');
+      this.debate = new Debate('', '', '', '', '', []);
      }
 
   ngOnInit() {
@@ -29,10 +35,14 @@ export class GetDebateComponent implements OnInit {
       debate => {
         this.debate = debate;
         console.log(this.debate);
+        this.post_ids = this.debate.posts;
+        console.log(this.post_ids);
       },
       error => {
         console.log(error);
-        this.router.navigate(['404']);
+        if (error.status === 404) {
+          this.router.navigate(['404']);
+        }
       });
   }
 }

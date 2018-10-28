@@ -4,7 +4,8 @@ export class Debate {
         public description: string,
         public text: string,
         public creator_id: string,
-        public community_id: string
+        public community_id: string,
+        public posts: number[]
     ) {
     }
 }
