@@ -1,0 +1,28 @@
+
+.affirmative {
+    background-color: #0A19A8;
+}
+
+.negative {
+    background-color: #C60707;
+}
+
+.neutral {
+    background-color: #08B228;
+}
+
+.team-A {
+    background-color: #091540 !important;
+}
+
+.team-B {
+    background-color: #ECC30B;
+}
+
+.team-C {
+    background-color: #86BBD8;
+}
+
+.team-D {
+    background-color: #F26419;
+}
