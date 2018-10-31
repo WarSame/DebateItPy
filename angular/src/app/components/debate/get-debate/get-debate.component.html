@@ -1,17 +1,16 @@
 <div class="container">
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-          {{ debate.title }}
-      </mat-panel-title>
-      <mat-panel-description>
+  <div class="header">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              {{ debate.title }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
         {{ debate.description }}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    {{ debate.text }}
-    Creator: {{ debate.creator_id }}
-    Community: {{ debate.community_id }}
-  </mat-expansion-panel>
+        Creator: {{ debate.creator_id }}
+        Community: {{ debate.community_id }}
+      </mat-expansion-panel>
+  </div>
   <div class="body">
       <div *ngFor="let post of debate.posts">
         <mat-expansion-panel>

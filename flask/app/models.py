@@ -124,13 +124,9 @@ class Debate(BaseModel):
         nullable=False
         )
     description = db.Column(
-        db.String(1000),
+        db.String(10000),
         nullable = True
     )
-    text = db.Column(
-        db.String(1000000),
-        nullable=False
-        )
     creator_id = db.Column(
         db.Integer,
         db.ForeignKey("Users.id"),
