@@ -1,23 +1,25 @@
 <div class="container">
-    <p>
-      Name: {{ debate.title }}
-    </p>
-    <p>
-      Description: {{ debate.description }}
-    </p>
-    <p>
-      Text: {{ debate.text }}
-    </p>
-    <p>
-      Creator_id: {{ debate.creator_id }}
-    </p>
-    <p>
-      Community_id: {{ debate.community_id }}
-    </p>
-    <div class="container">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          {{ debate.title }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ debate.description }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    {{ debate.text }}
+    Creator: {{ debate.creator_id }}
+    Community: {{ debate.community_id }}
+  </mat-expansion-panel>
+  <div class="body">
       <div *ngFor="let post of debate.posts">
-        <p>{{ post.title }}</p>
-        <p>{{ post.text }}</p>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            {{ post.title }}
+          </mat-expansion-panel-header>
+          <p>{{ post.text }}</p>
+        </mat-expansion-panel>
       </div>
     </div>
   </div>

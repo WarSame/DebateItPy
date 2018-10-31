@@ -12,7 +12,7 @@ import { AuthenticationService } from './services/authentication/authentication.
 
 import { TopTargetedFeedComponent } from './components/top-targeted-feed/top-targeted-feed.component';
 
-import { MatButtonModule, MatToolbarModule, MatIconModule, MatMenuModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatIconModule, MatMenuModule, MatCardModule, MatExpansionModule } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -58,9 +58,11 @@ library.add(faCoffee);
     MatIconModule,
     FontAwesomeModule,
     MatMenuModule,
+    MatCardModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
