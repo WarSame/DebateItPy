@@ -1,20 +1,22 @@
 <div class="container">
   <div class="header">
     <mat-expansion-panel>
-        <mat-expansion-panel-header class="team-A">
+        <mat-expansion-panel-header class="neutral">
           <mat-panel-title>
               {{ debate.title }}
           </mat-panel-title>
         </mat-expansion-panel-header>
         {{ debate.description }}
-        Creator: {{ debate.creator_id }}
-        Community: {{ debate.community_id }}
+        <div class="debate-footer">
+            Creator: {{ debate.creator_id }}
+            Community: {{ debate.community_id }}
+        </div>
       </mat-expansion-panel>
   </div>
   <div class="body">
-      <div *ngFor="let post of debate.posts">
+      <div *ngFor="let post of debate.posts" class="right-side post">
         <mat-expansion-panel>
-          <mat-expansion-panel-header>
+          <mat-expansion-panel-header class="team-A">
             {{ post.title }}
           </mat-expansion-panel-header>
           <p>{{ post.text }}</p>

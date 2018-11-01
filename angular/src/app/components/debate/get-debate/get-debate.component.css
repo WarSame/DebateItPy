@@ -1,14 +1,14 @@
 
 .affirmative {
-    background-color: #0A19A8;
+    background-color: #0A19A8 !important;
 }
 
 .negative {
-    background-color: #C60707;
+    background-color: #C60707 !important;
 }
 
 .neutral {
-    background-color: #08B228;
+    background-color: #08B228 !important;
 }
 
 .team-A {
@@ -16,13 +16,25 @@
 }
 
 .team-B {
-    background-color: #ECC30B;
+    background-color: #ECC30B !important;
 }
 
 .team-C {
-    background-color: #86BBD8;
+    background-color: #86BBD8 !important;
 }
 
 .team-D {
-    background-color: #F26419;
+    background-color: #F26419 !important;
+}
+
+.post {
+    width: 80%;
+}
+
+.left-side {
+    float: left !important;
+}
+
+.right-side {
+    float: right !important;
 }
