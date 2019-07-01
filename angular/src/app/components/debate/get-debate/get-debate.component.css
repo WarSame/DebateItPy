@@ -12,7 +12,7 @@
 }
 
 .team-A {
-    background-color: #091540 !important;
+    background-color: #152f8b !important;
 }
 
 .team-B {
@@ -29,6 +29,7 @@
 
 .post {
     width: 80%;
+    margin: 10px;
 }
 
 .left-side {
