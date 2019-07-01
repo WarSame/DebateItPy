@@ -1,0 +1,41 @@
+
+.affirmative {
+    background-color: #0A19A8 !important;
+}
+
+.negative {
+    background-color: #C60707 !important;
+}
+
+.neutral {
+    background-color: #08B228 !important;
+}
+
+.team-A {
+    background-color: #152f8b !important;
+}
+
+.team-B {
+    background-color: #ECC30B !important;
+}
+
+.team-C {
+    background-color: #86BBD8 !important;
+}
+
+.team-D {
+    background-color: #F26419 !important;
+}
+
+.post {
+    width: 80%;
+    margin: 10px;
+}
+
+.left-side {
+    float: left !important;
+}
+
+.right-side {
+    float: right !important;
+}

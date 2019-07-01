@@ -1,0 +1,31 @@
+<section class="container">
+    <h1>Create community</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" [formControl]="title">
+      </div>
+  
+      <div>
+        <label for="description">Description</label>
+        <input type="text" [formControl]="description">
+      </div>
+  
+      <div>
+        <label for="text">Text</label>
+        <input type="text" [formControl]="text">
+      </div>
+  
+      <div>
+        <label for="creator_id">Creator ID</label>
+        <input type="text" [formControl]="creator_id">
+      </div>
+
+      <div>
+        <label for="community_id">Community ID</label>
+        <input type="text" [formControl]="community_id">
+      </div>
+  
+      <button type="submit" class="btn btn-success" [disabled]="!form.valid">Submit</button>
+    </form>
+  </section>

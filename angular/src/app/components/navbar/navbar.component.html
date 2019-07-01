@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <span>DebateIt</span>
+  <span class="navbar-fill"></span>
+
+  <button mat-button [matMenuTriggerFor]="navbar_menu">Menu</button>
+
+  <mat-menu #navbar_menu="matMenu">
+    <button mat-menu-item (click)="this.authenticate()">Item 1</button>
+    <button mat-menu-item>2 2</button>
+  </mat-menu>
+
+</mat-toolbar>
