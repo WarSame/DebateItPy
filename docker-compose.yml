@@ -4,13 +4,9 @@ services:
     container_name: angular
     build: ./angular
     ports:
-      - "80:80"
+      - "4200:80"
     depends_on:
       - web
-
-  redis:
-    container_name: redis
-    image: redis:latest
 
   db:
     container_name: db
@@ -35,5 +31,4 @@ services:
     ports:
      - "5000:5000"
     depends_on:
-      - redis
       - db
