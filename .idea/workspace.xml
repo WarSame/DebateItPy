@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d00b6c84-2b2c-4e69-87b0-d3b2f73161e9" name="Default" comment="Progress on unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/test/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/test/integration/test_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/test/integration/test_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/test/unit/test_this.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/test/unit/test_this.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +89,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for test.integration.test_db.TestUserModelCase">
+  <component name="RunManager" selected="Python tests.Nosetests for test.unit.test_this.BasicTests">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -230,8 +231,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for test.integration.test_db.TestUserModelCase" />
         <item itemvalue="Python tests.Nosetests for test.unit.test_this.BasicTests" />
+        <item itemvalue="Python tests.Unittests for test.integration.test_db.TestUserModelCase" />
         <item itemvalue="Python tests.Nosetests in test_this.py" />
         <item itemvalue="Python tests.Nosetests for test_this.BasicTests" />
         <item itemvalue="Python tests.Unittests for test_this.TestThis" />
@@ -248,13 +249,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528151099110</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Minimally working testing">
-      <created>1529872105553</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1529872105553</updated>
     </task>
     <task id="LOCAL-00074" summary="Ignore secrets.py">
       <created>1529872186607</created>
@@ -592,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572840810989</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="Progress on unit tests">
+      <created>1572841035747</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1572841035747</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

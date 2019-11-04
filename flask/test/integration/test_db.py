@@ -5,6 +5,7 @@ from .. import create_app, db, models
 class TestUserModelCase(unittest.TestCase):
     def setUp(self):
         app = create_app()
+        app.app_context().push()
         app.testing = True
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
         db.create_all()
@@ -16,7 +17,7 @@ class TestUserModelCase(unittest.TestCase):
 
     def test_retrieveUser(self):
         u = models.User.retrieve_one(id=self.user_id)
-        assert(5==4)
+        assert(u.id == 1)
 
     def create_user(self, db):
         u = models.User(name="graeme", email="graeme@test.com", google_id="something")
