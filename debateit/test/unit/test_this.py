@@ -11,7 +11,7 @@ class BasicTests(unittest.TestCase):
         app.app_context().push()
         app.testing = True
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
-        self.app = app
+        self.app = app.test_client()
         db.drop_all()
         db.create_all()
 
@@ -22,7 +22,7 @@ class BasicTests(unittest.TestCase):
 
     def test_main_page(self):
         response = self.app.get('/', follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 404)
 
 
 if __name__ == "__main__":
