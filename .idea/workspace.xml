@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d00b6c84-2b2c-4e69-87b0-d3b2f73161e9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/flask/test/context.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DebateItPy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DebateItPy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d00b6c84-2b2c-4e69-87b0-d3b2f73161e9" name="Default" comment="Progress on unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.noseids" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/flask/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/test/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/test/context.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/flask/test/integration/test_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/test/integration/test_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask/test/unit/test_this.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/test/unit/test_this.py" afterDir="false" />
     </list>
@@ -94,7 +91,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Nosetests for test.unit.test_this.BasicTests">
+  <component name="RunManager" selected="Python tests.Unittests for test.integration.test_db.TestUserModelCase">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -236,10 +233,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for test.integration.test_db.TestUserModelCase" />
         <item itemvalue="Python tests.Nosetests for test.unit.test_this.BasicTests" />
         <item itemvalue="Python tests.Nosetests in test_this.py" />
         <item itemvalue="Python tests.Nosetests for test_this.BasicTests" />
-        <item itemvalue="Python tests.Unittests for test.integration.test_db.TestUserModelCase" />
         <item itemvalue="Python tests.Unittests for test_this.TestThis" />
       </list>
     </recent_temporary>
@@ -254,13 +251,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528151099110</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Trying tests, running into problems with db">
-      <created>1529869176881</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1529869176881</updated>
     </task>
     <task id="LOCAL-00072" summary="Fixed db config, need to get attribute db for flask app">
       <created>1529869337471</created>
@@ -598,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531282640304</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Progress on unit tests">
+      <created>1572840404209</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1572840404210</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -625,7 +622,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove print from test" />
     <MESSAGE value="Add create to navbar" />
     <MESSAGE value="Fixed navbar gets, added debate to routes, cleaned route creates up" />
     <MESSAGE value="SPA for create community. Need to look into front end framework" />
@@ -650,6 +646,7 @@
     <MESSAGE value="Actually got docker compose building flask" />
     <MESSAGE value="Fixed test dict" />
     <MESSAGE value="Working cors, js had wrong endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working cors, js had wrong endpoint" />
+    <MESSAGE value="Progress on unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Progress on unit tests" />
   </component>
 </project>

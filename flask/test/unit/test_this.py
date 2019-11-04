@@ -2,13 +2,14 @@
 import os
 import unittest
 
-from ..context import app
+from .. import create_app, db
 
 TEST_DB = 'test.db'
 
 
 class BasicTests(unittest.TestCase):
     def setUp(self):
+        app = create_app()
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False
         app.config['DEBUG'] = False

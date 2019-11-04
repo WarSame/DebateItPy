@@ -1,10 +1,10 @@
 import unittest
-from ..context import app
-from ..context import User, Post
+from .. import create_app, db, models
+
 
 class TestUserModelCase(unittest.TestCase):
     def setUp(self):
-        app = app.create_app()
+        app = create_app()
         app.testing = True
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
         db.create_all()
@@ -15,14 +15,15 @@ class TestUserModelCase(unittest.TestCase):
         db.drop_all()
 
     def test_retrieveUser(self):
-        u = User.retrieve_one(id=user_id)
+        u = models.User.retrieve_one(id=self.user_id)
         assert(5==4)
 
-    def create_user(db):
-        u = User(name="graeme", email="graeme@test.com", google_id="something")
+    def create_user(self, db):
+        u = models.User(name="graeme", email="graeme@test.com", google_id="something")
         db.session.add(u)
         db.session.commit()
-        user_id = u.id
+        self.user_id = u.id
+
 
 if __name__ == '__main__':
     unittest.main()
