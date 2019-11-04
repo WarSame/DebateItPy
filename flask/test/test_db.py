@@ -1,7 +1,7 @@
 import unittest
 
 class TestUserModelCase(unittest.TestCase):
-    def test_split(self):
+    def test_splitsss(self):
         s = 'hello world'
         self.assertEqual(s.split(), ['hello', 'world'])
         # check that s.split fails when the separator is not a string
