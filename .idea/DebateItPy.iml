@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$/flask">
-      <excludeFolder url="file://$MODULE_DIR$/flask/flask/venv" />
-      <excludeFolder url="file://$MODULE_DIR$/flask/venv" />
+    <content url="file://$MODULE_DIR$/debateit">
+      <excludeFolder url="file://$MODULE_DIR$/debateit/flask/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/debateit/venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (flask)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (DebateIt)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="R User Library" level="project" />
     <orderEntry type="library" name="R Skeletons" level="application" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="$MODULE_DIR$/flask/requirements.txt" />
+    <option name="requirementsPath" value="$MODULE_DIR$/debateit/requirements.txt" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="Nosetests" />
