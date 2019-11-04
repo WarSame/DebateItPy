@@ -1,1 +1,1 @@
-from ..app import create_app, db, models
+from app import create_app, db, models
