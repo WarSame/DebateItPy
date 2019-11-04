@@ -25,5 +25,5 @@ ENV GOOGLE_LOGIN_CLIENT_SECRET uzEFi2y3rlt2BqsArNXKHG9c
 ENV FACEBOOK_LOGIN_CLIENT_ID 485484021845294
 ENV FACEBOOK_LOGIN_CLIENT_SECRET this
 
-# Run debateit.py when the container launches
+# Run server.py when the container launches
 CMD ["flask", "run", "--host=0.0.0.0"]
