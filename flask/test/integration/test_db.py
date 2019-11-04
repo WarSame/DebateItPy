@@ -1,9 +1,10 @@
 import unittest
-from .. import app, db
-from .. import User, Post
+from ..context import app
+from ..context import User, Post
 
 class TestUserModelCase(unittest.TestCase):
     def setUp(self):
+        app = app.create_app()
         app.testing = True
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
         db.create_all()
