@@ -7,9 +7,9 @@ import { switchMap } from 'rxjs/operators';
 import { Argument } from '../argument';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './get-post.component.html',
-  styleUrls: ['./get-post.component.css']
+  selector: 'app-argument',
+  templateUrl: './get-argument.component.html',
+  styleUrls: ['./get-argument.component.css']
 })
 export class GetArgumentComponent implements OnInit {
   private argument: Argument;

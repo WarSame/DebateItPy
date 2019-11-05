@@ -5,9 +5,9 @@ import { Argument } from '../argument';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.css']
+  selector: 'app-create-argument',
+  templateUrl: './create-argument.component.html',
+  styleUrls: ['./create-argument.component.css']
 })
 export class CreateArgumentComponent implements OnInit {
   private form: FormGroup;
@@ -40,7 +40,7 @@ export class CreateArgumentComponent implements OnInit {
       this.form.value.user_id,
       this.form.value.debate_id
       );
-    this.service.createPost(this.argument).subscribe(
+    this.service.createArgument(this.argument).subscribe(
       data => {
         console.log(data);
       },
