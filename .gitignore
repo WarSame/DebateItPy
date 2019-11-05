@@ -101,7 +101,7 @@ ENV/
 .mypy_cache/
 
 #secret files
-/.idea
+/.idea/
 /server/app/client.secrets
 /server/app/secrets.py
-/.vscode
+/.vscode/
