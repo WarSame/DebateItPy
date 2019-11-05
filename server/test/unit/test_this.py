@@ -1,6 +1,7 @@
 import unittest
 
 from .. import create_app, db
+from flask import json
 
 TEST_DB = 'test.db'
 
@@ -18,11 +19,22 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(app.debug, False)
 
     def tearDown(self):
-        pass
+        db.session.remove()
+        db.drop_all()
 
-    def test_main_page(self):
-        response = self.app.get('/', follow_redirects=True)
+    def test_get_missing_user(self):
+        response = self.app.get('/api/u/1', follow_redirects=True)
         self.assertEqual(response.status_code, 404)
+
+    def test_get_existing_user(self):
+        post_response = self.app.post(
+            '/api/u/',
+            data=json.dumps({"name": "Graeme", "email": "graemecliffe@test.com"}),
+            content_type="application/json"
+        )
+        id = json.loads(post_response.data)["id"]
+        get_response = self.app.get('/api/u/{}'.format(id), follow_redirects=True)
+        self.assertEqual(get_response.status_code, 200)
 
 
 if __name__ == "__main__":

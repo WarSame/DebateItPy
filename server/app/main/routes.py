@@ -14,7 +14,7 @@ def create_user(user_id=None):
     if User.retrieve_one(name=json["name"]) is not None:
         return jsonify(success=False, reason='User with that name already exists')
     user = User.create(**json)
-    user_json = UserSchema().dump(user).data
+    user_json = UserSchema().dump(user)
     return jsonify(user_json)
 
 
@@ -24,7 +24,7 @@ def get_user(user_id=None):
     current_app.logger.info(user)
     if user is None:
         return abort(404)
-    user_json = UserSchema().dump(user).data
+    user_json = UserSchema().dump(user)
     current_app.logger.info(user_json)
     return jsonify(user_json)
 
