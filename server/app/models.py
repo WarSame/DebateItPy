@@ -1,5 +1,5 @@
 from flask import current_app
-from app import db
+from . import db
 from datetime import datetime
 
 

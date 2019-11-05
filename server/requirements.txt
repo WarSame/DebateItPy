@@ -13,5 +13,5 @@ requests
 pytest
 Flask-CORS
 Flask-WTF==0.14.2
-flask-marshmallow
-marshmallow-sqlalchemy
+flask-marshmallow==0.10.1
+marshmallow-sqlalchemy==0.19.0

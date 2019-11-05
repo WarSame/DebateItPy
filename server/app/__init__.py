@@ -4,7 +4,7 @@ from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 from flask_cors import CORS
 from redis import Redis
-from config import Config
+from ..config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -21,10 +21,10 @@ def create_app():
     ma.init_app(app)
     CORS(app)
 
-    from app.auth import bp as auth_bp
+    from .auth import bp as auth_bp
     app.register_blueprint(auth_bp)
 
-    from app.main import bp as main_bp
+    from .main import bp as main_bp
     app.register_blueprint(main_bp)
 
     return app

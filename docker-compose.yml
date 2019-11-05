@@ -25,7 +25,7 @@ services:
     container_name: web
     build: ./server
     volumes:
-      - ./server:/app
+      - ./server:/server
     environment:
      - FLASK_DEBUG=1
     ports:

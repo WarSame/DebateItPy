@@ -1,10 +1,10 @@
 from flask import render_template, redirect, request, session, current_app, jsonify, abort
-from app.models import User, Community, Post, Debate
-from app.main.forms import CreateCommunityForm, CreateDebateForm
-from app.auth.oauth import receive_google_token
-from app import redis
-from app.main import bp
-from app.views import CommunitySchema, UserSchema, DebateSchema, PostSchema
+from ..models import User, Community, Post, Debate
+from ..main.forms import CreateCommunityForm, CreateDebateForm
+from ..auth.oauth import receive_google_token
+from ..main import bp
+from .. import redis
+from ..views import CommunitySchema, UserSchema, DebateSchema, PostSchema
 
 
 @bp.route("/api/u/", methods=["POST"])

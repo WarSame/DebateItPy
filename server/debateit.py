@@ -1,12 +1,12 @@
-from app import create_app, db
-from app.models import User, Debate, Post, Community
-from app.views import UserSchema, DebateSchema, PostSchema, CommunitySchema
+from .app import create_app, db
+from .app.models import User, Debate, Post, Community
+from .app.views import UserSchema, DebateSchema, PostSchema, CommunitySchema
 
 
-app = create_app()
+debateit = create_app()
 
 
-@app.shell_context_processor
+@debateit.shell_context_processor
 def make_shell_context():
     return {
         'db': db,
@@ -22,4 +22,4 @@ def make_shell_context():
 
 
 if __name__ == "__main__":
-    app.run()
+    debateit.run()
