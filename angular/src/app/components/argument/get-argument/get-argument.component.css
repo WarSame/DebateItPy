@@ -1,0 +1,13 @@
+.argument-card {
+    max-width: 500px;
+    padding: 0px;
+}
+
+.argument-card-header {
+    background-color: aqua;
+    padding: 20px;
+}
+
+.argument-card-content {
+    padding: 20px;
+}

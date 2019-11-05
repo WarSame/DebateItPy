@@ -1,14 +1,8 @@
-<div class="container">
-  <p>
-    Title: {{ argument.title }}
-  </p>
-  <p>
-    Content: {{ argument.content }}
-  </p>
-  <p>
-    User ID: {{ argument.user_id }}
-  </p>
-  <p>
-    Debate ID: {{ argument.debate_id }}
-  </p>
-</div>
+<mat-card class="argument-card">
+  <mat-card-header class="argument-card-header">
+    {{ argument.title }}
+  </mat-card-header>
+  <mat-card-content class="argument-card-content">
+    {{ argument.content }}
+  </mat-card-content>
+</mat-card>
