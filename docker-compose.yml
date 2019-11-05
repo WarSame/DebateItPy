@@ -23,9 +23,9 @@ services:
 
   web:
     container_name: web
-    build: ./flask
+    build: ./server
     volumes:
-      - ./flask:/app
+      - ./server:/app
     environment:
      - FLASK_DEBUG=1
     ports:
