@@ -32,7 +32,7 @@ def get_specific_community(community_id=None):
     current_app.logger.info(community)
     if community is None:
         return abort(404)
-    community_json = CommunitySchema().dump(community).data
+    community_json = CommunitySchema().dump(community)
     current_app.logger.info(community_json)
     return jsonify(community_json)
 
@@ -54,7 +54,7 @@ def get_debate(debate_id=None):
     current_app.logger.info(debate)
     if debate is None:
         return abort(404)
-    debate_json = DebateSchema().dump(debate).data
+    debate_json = DebateSchema().dump(debate)
     current_app.logger.info(debate_json)
     return jsonify(debate_json)
 
@@ -74,7 +74,7 @@ def get_argument(argument_id=None):
     current_app.logger.info(argument)
     if argument is None:
         return abort(404)
-    argument_json = ArgumentSchema().dump(argument).data
+    argument_json = ArgumentSchema().dump(argument)
     current_app.logger.info(argument_json)
     return jsonify(argument_json)
 
@@ -84,7 +84,7 @@ def create_argument():
     json = request.get_json()
     current_app.logger.info(json)
     argument = Argument.create(**json)
-    argument_json = ArgumentSchema().dump(argument).data
+    argument_json = ArgumentSchema().dump(argument)
     return jsonify(argument_json)
 
 
