@@ -14,7 +14,6 @@ export class CreateDebateComponent implements OnInit {
 
   title = new FormControl('', Validators.required);
   description = new FormControl('', Validators.required);
-  text = new FormControl('', Validators.required);
   creator_id = new FormControl('', Validators.required);
   community_id = new FormControl('', Validators.required);
 
@@ -25,7 +24,6 @@ export class CreateDebateComponent implements OnInit {
     this.form = fb.group({
       'title': this.title,
       'description': this.description,
-      'text': this.text,
       'creator_id': this.creator_id,
       'community_id': this.community_id
     });
@@ -38,10 +36,8 @@ export class CreateDebateComponent implements OnInit {
     this.debate = new Debate(
       this.form.value.title,
       this.form.value.description,
-      this.form.value.text,
       this.form.value.creator_id,
-      this.form.value.community_id,
-      []
+      this.form.value.community_id
       );
     this.service.createDebate(this.debate).subscribe(
       data => {

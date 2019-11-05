@@ -44,7 +44,7 @@ def create_community():
     if Community.retrieve_one(name=json["name"]) is not None:
         return jsonify(success=False, reason='Community with that name already exists')
     community = Community.create(**json)
-    community_json = CommunitySchema().dump(community).data
+    community_json = CommunitySchema().dump(community)
     return jsonify(community_json)
 
 
@@ -64,7 +64,7 @@ def create_debate():
     json = request.get_json()
     current_app.logger.info(json)
     debate = Debate.create(**json)
-    debate_json = DebateSchema().dump(debate).data
+    debate_json = DebateSchema().dump(debate)
     return jsonify(debate_json)
 
 

@@ -24,7 +24,7 @@ export class CreateArgumentComponent implements OnInit {
   ) {
     this.form = fb.group({
       'title': this.title,
-      'text': this.content,
+      'content': this.content,
       'user_id': this.user_id,
       'debate_id': this.debate_id
     });

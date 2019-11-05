@@ -12,10 +12,13 @@ export class ArgumentService {
   constructor(private http: HttpClient) {}
 
   getArgument(id: string) {
-    return this.http.get<Argument>(this.ARGUMENT_URL + id, {});
+    const url = this.ARGUMENT_URL + id;
+    console.log('Getting argument from ' + url);
+    return this.http.get<Argument>(url, {});
   }
 
   createArgument(argument: Argument) {
+    console.log('Creating argument ', argument);
     return this.http.post(this.ARGUMENT_URL, argument);
   }
 }
