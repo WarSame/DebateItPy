@@ -36,6 +36,7 @@ class BaseModel(db.Model):
         obj = cls(**kwargs)
         db.session.add(obj)
         db.session.commit()
+        current_app.logger.info('Created {} with id: {}'.format(cls.__name__, obj.id))
         return obj
 
     @classmethod
