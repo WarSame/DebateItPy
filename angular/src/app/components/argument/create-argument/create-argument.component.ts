@@ -14,7 +14,7 @@ export class CreateArgumentComponent implements OnInit {
   private argument: Argument;
 
   title = new FormControl('', Validators.required);
-  text = new FormControl('', Validators.required);
+  content = new FormControl('', Validators.required);
   user_id = new FormControl('', Validators.required);
   debate_id = new FormControl('', Validators.required);
 
@@ -24,7 +24,7 @@ export class CreateArgumentComponent implements OnInit {
   ) {
     this.form = fb.group({
       'title': this.title,
-      'text': this.text,
+      'text': this.content,
       'user_id': this.user_id,
       'debate_id': this.debate_id
     });
@@ -36,7 +36,7 @@ export class CreateArgumentComponent implements OnInit {
   onSubmit() {
     this.argument = new Argument(
       this.form.value.title,
-      this.form.value.text,
+      this.form.value.content,
       this.form.value.user_id,
       this.form.value.debate_id
       );
