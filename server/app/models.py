@@ -137,8 +137,8 @@ class Debate(BaseModel):
         db.ForeignKey("Communities.id"),
         nullable=False
         )
-    posts = db.relationship(
-        "Post",
+    arguments = db.relationship(
+        "Argument",
         backref="debate",
         lazy="dynamic"
     )
@@ -147,14 +147,14 @@ class Debate(BaseModel):
         return "<Debate: {0}>".format(self.title)
 
 
-class Post(BaseModel):
-    __tablename__ = "Posts"
+class Argument(BaseModel):
+    __tablename__ = "Arguments"
 
     title = db.Column(
         db.String(1000),
         nullable=False
         )
-    text = db.Column(
+    content = db.Column(
         db.String(1000000),
         nullable=False
         )
@@ -170,4 +170,4 @@ class Post(BaseModel):
         )
 
     def __repr__(self):
-        return "<Post: {0}>".format(self.title)
+        return "<Argument: {0}>".format(self.title)

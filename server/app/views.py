@@ -1,6 +1,5 @@
 from . import ma
-from .models import Community, User, Debate, Post
-from flask_marshmallow import Marshmallow
+from .models import Community, User, Debate, Argument
 from marshmallow import fields
 
 
@@ -16,14 +15,14 @@ class UserSchema(ma.ModelSchema):
         model = User
 
 
-class PostSchema(ma.ModelSchema):
+class ArgumentSchema(ma.ModelSchema):
     class Meta:
-        fields = ('id', 'title', 'text', 'user_id', 'debate_id')
-        model = Post
+        fields = ('id', 'title', 'content', 'user_id', 'debate_id')
+        model = Argument
 
 
 class DebateSchema(ma.ModelSchema):
     class Meta:
         fields = ('id', 'title', 'description', 'creator_id', 'community_id', 'posts')
         model = Debate
-    posts = fields.Nested(PostSchema, many=True)
+    posts = fields.Nested(ArgumentSchema, many=True)

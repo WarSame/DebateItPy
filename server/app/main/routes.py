@@ -1,10 +1,7 @@
-from flask import render_template, redirect, request, session, current_app, jsonify, abort
-from ..models import User, Community, Post, Debate
-from ..main.forms import CreateCommunityForm, CreateDebateForm
-from ..auth.oauth import receive_google_token
+from flask import request, current_app, jsonify, abort
+from ..models import User, Community, Argument, Debate
 from ..main import bp
-from .. import redis
-from ..views import CommunitySchema, UserSchema, DebateSchema, PostSchema
+from ..views import CommunitySchema, UserSchema, DebateSchema, ArgumentSchema
 
 
 @bp.route("/api/u/", methods=["POST"])
@@ -71,31 +68,31 @@ def create_debate():
     return jsonify(debate_json)
 
 
-@bp.route("/api/p/<post_id>", methods=["GET"])
-def get_post(post_id=None):
-    post = Post.retrieve_one(id=post_id)
-    current_app.logger.info(post)
-    if post is None:
+@bp.route("/api/a/<argument_id>", methods=["GET"])
+def get_argument(argument_id=None):
+    argument = Argument.retrieve_one(id=argument_id)
+    current_app.logger.info(argument)
+    if argument is None:
         return abort(404)
-    post_json = PostSchema().dump(post).data
-    current_app.logger.info(post_json)
-    return jsonify(post_json)
+    argument_json = ArgumentSchema().dump(argument).data
+    current_app.logger.info(argument_json)
+    return jsonify(argument_json)
 
 
-@bp.route("/api/p/", methods=["POST"])
-def create_post():
+@bp.route("/api/a/", methods=["POST"])
+def create_argument():
     json = request.get_json()
     current_app.logger.info(json)
-    post = Post.create(**json)
-    post_json = PostSchema().dump(post).data
-    return jsonify(post_json)
+    argument = Argument.create(**json)
+    argument_json = ArgumentSchema().dump(argument).data
+    return jsonify(argument_json)
 
 
 @bp.route("/api/top/d/<count>", methods=["GET"])
 def top_debates(count=0):
-    current_app.logger.info("Retrieving top " + count + " rows")
+    current_app.logger.info("Retrieving top {} rows".format(count))
     top_debates = Debate.retrieve_some(count)
     current_app.logger.info("Retrieved {} rows".format(len(top_debates)))
-    top_debates_json = DebateSchema(many=True).dump(top_debates).data
+    top_debates_json = DebateSchema(many=True).dump(top_debates)
     current_app.logger.info("JSON is {}".format(top_debates_json))
     return jsonify(top_debates_json)
