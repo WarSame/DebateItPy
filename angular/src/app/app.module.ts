@@ -20,9 +20,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { DebateFeedLineComponent } from './components/debate-feed-line/debate-feed-line.component';
-import { GetPostComponent } from './components/post/get-post/get-post.component';
+import { GetArgumentComponent } from './components/argument/get-argument/get-argument.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CreatePostComponent } from './components/post/create-post/create-post.component';
+import { CreateArgumentComponent } from './components/argument/create-argument/create-argument.component';
 import { CreateCommunityComponent } from './components/community/create-community/create-community.component';
 import { GetCommunityComponent } from './components/community/get-community/get-community.component';
 import { GetUserComponent } from './components/user/get-user/get-user.component';
@@ -40,8 +40,8 @@ library.add(faCoffee);
     TopGeneralFeedComponent,
     TopTargetedFeedComponent,
     DebateFeedLineComponent,
-    GetPostComponent,
-    CreatePostComponent,
+    GetArgumentComponent,
+    CreateArgumentComponent,
     CreateCommunityComponent,
     GetCommunityComponent,
     GetUserComponent,

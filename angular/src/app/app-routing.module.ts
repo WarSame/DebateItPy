@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { TopGeneralFeedComponent } from './components/top-general-feed/top-general-feed.component';
-import { GetPostComponent } from './components/post/get-post/get-post.component';
-import { CreatePostComponent } from './components/post/create-post/create-post.component';
+import { GetArgumentComponent } from './components/argument/get-argument/get-argument.component';
+import { CreateArgumentComponent } from './components/argument/create-argument/create-argument.component';
 import { CreateCommunityComponent } from './components/community/create-community/create-community.component';
 import { GetCommunityComponent } from './components/community/get-community/get-community.component';
 import { CreateUserComponent } from './components/user/create-user/create-user.component';
@@ -20,8 +20,8 @@ const appRoutes: Routes = [
   { path: 'u/:id', component: GetUserComponent},
   { path: 'd', component: CreateDebateComponent},
   { path: 'd/:id', component: GetDebateComponent},
-  { path: 'p', component: CreatePostComponent},
-  { path: 'p/:id', component: GetPostComponent},
+  { path: 'a', component: CreateArgumentComponent},
+  { path: 'a/:id', component: GetArgumentComponent},
   { path: 'c', component: CreateCommunityComponent},
   { path: 'c/:id', component: GetCommunityComponent},
   { path: '', component: TopGeneralFeedComponent},

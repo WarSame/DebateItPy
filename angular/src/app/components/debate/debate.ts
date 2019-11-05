@@ -1,13 +1,13 @@
-import { Post } from 'src/app/components/post/post';
+import { Argument } from 'src/app/components/argument/argument';
 
 export class Debate {
     constructor(
         public title: string,
         public description: string,
-        public text: string,
+        public content: string,
         public creator_id: string,
         public community_id: string,
-        public posts: Post[]
+        public arg_list: Argument[]
     ) {
     }
 }

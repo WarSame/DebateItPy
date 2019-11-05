@@ -3,8 +3,8 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { DebateService } from 'src/app/services/debate/debate.service';
 import { Debate } from '../debate';
 import { switchMap } from 'rxjs/operators';
-import { Post } from 'src/app/components/post/post';
-import { PostService } from 'src/app/services/post/post.service';
+import { Argument } from 'src/app/components/argument/argument';
+import { ArgumentService } from 'src/app/services/argument/argument.service';
 
 @Component({
   selector: 'app-get-debate',
@@ -14,13 +14,13 @@ import { PostService } from 'src/app/services/post/post.service';
 export class GetDebateComponent implements OnInit {
   private debate: Debate;
   private post_ids: number[];
-  private posts: Post[];
+  private arguments: Argument[];
 
   constructor(
     private route: ActivatedRoute,
     private service: DebateService,
     private router: Router,
-    private post_service: PostService
+    private argument_service: ArgumentService
     ) {
       this.debate = new Debate('', '', '', '', '', []);
      }

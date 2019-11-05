@@ -1,4 +1,4 @@
-export class Post {
+export class Argument {
     constructor(
         public title: string,
         public text: string,

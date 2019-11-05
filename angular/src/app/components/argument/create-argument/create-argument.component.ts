@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PostService } from 'src/app/services/post/post.service';
-import { Post } from '../post';
+import { ArgumentService } from 'src/app/services/argument/argument.service';
+import { Argument } from '../argument';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,9 +9,9 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.css']
 })
-export class CreatePostComponent implements OnInit {
+export class CreateArgumentComponent implements OnInit {
   private form: FormGroup;
-  private post: Post;
+  private argument: Argument;
 
   title = new FormControl('', Validators.required);
   text = new FormControl('', Validators.required);
@@ -19,7 +19,7 @@ export class CreatePostComponent implements OnInit {
   debate_id = new FormControl('', Validators.required);
 
   constructor(
-    public service: PostService,
+    public service: ArgumentService,
     private fb: FormBuilder
   ) {
     this.form = fb.group({
@@ -34,13 +34,13 @@ export class CreatePostComponent implements OnInit {
   }
 
   onSubmit() {
-    this.post = new Post(
+    this.argument = new Argument(
       this.form.value.title,
       this.form.value.text,
       this.form.value.user_id,
       this.form.value.debate_id
       );
-    this.service.createPost(this.post).subscribe(
+    this.service.createPost(this.argument).subscribe(
       data => {
         console.log(data);
       },
