@@ -58,6 +58,8 @@ class TestUserModelCase(unittest.TestCase):
     def test_retrieveDebate(self):
         d = models.Debate.retrieve_one(id=self.debate_id)
         assert(d.id == 1)
+        assert(d.arguments is not None)
+        assert(len(d.arguments) == 2)
 
     def test_retrieveArguments(self):
         arguments = []
