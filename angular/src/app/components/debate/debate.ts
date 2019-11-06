@@ -5,8 +5,8 @@ export class Debate {
         public title: string,
         public description: string,
         public creator_id: string,
-        public community_id: string
-        // public arg_list: Argument[] // commented until backend matches
+        public community_id: string,
+        public arg_list: Argument[]
     ) {
     }
 }

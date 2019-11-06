@@ -14,12 +14,12 @@
       </mat-expansion-panel>
   </div>
   <div class="body">
-      <div *ngFor="let post of debate.posts" class="right-side post">
+      <div *ngFor="let argument of debate.arg_list" class="right-side post">
         <mat-expansion-panel>
           <mat-expansion-panel-header class="team-A">
-            {{ post.title }}
+            {{ argument.title }}
           </mat-expansion-panel-header>
-          <p>{{ post.text }}</p>
+          <p>{{ argument.text }}</p>
         </mat-expansion-panel>
       </div>
     </div>

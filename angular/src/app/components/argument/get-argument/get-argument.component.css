@@ -1,13 +1,15 @@
 .argument-card {
-    max-width: 500px;
-    padding: 0px;
+    max-width: 25vw;
+    padding: 0vw;
 }
 
 .argument-card-header {
     background-color: aqua;
-    padding: 20px;
+    padding: 2vh;
 }
 
 .argument-card-content {
-    padding: 20px;
+    padding: 2vh;
+    overflow-y: scroll;
+    max-height: 80vh;
 }
