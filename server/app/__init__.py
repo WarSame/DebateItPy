@@ -4,12 +4,13 @@ from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
 from flask_cors import CORS
 from redis import Redis
-from config import Config
+from .config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
 ma = Marshmallow()
 redis = Redis(host="redis", port=6379)
+
 
 def create_app():
     app = Flask(__name__)
