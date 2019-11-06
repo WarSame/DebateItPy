@@ -3,10 +3,10 @@ from . import db
 from datetime import datetime
 
 
-user_community_table = db.Table("Users_communities",
+user_community_table = db.Table("users_communities",
                                 db.metadata,
-                                db.Column("user_id", db.Integer, db.ForeignKey("Users.id")),
-                                db.Column("community_id", db.Integer, db.ForeignKey("Communities.id")),
+                                db.Column("user_id", db.Integer, db.ForeignKey("users.id")),
+                                db.Column("community_id", db.Integer, db.ForeignKey("communities.id")),
                                 extend_existing=True
                                 )
 
@@ -72,7 +72,7 @@ class BaseModel(db.Model):
 
 
 class User(BaseModel):
-    __tablename__ = "Users"
+    __tablename__ = "users"
 
     name = db.Column(
         db.String(80),
@@ -97,7 +97,7 @@ class User(BaseModel):
 
 
 class Community(BaseModel):
-    __tablename__ = "Communities"
+    __tablename__ = "communities"
 
     name = db.Column(
         db.String(80),
@@ -118,7 +118,7 @@ class Community(BaseModel):
 
 
 class Debate(BaseModel):
-    __tablename__ = "Debates"
+    __tablename__ = "debates"
 
     title = db.Column(
         db.String(1000),
@@ -130,17 +130,17 @@ class Debate(BaseModel):
     )
     creator_id = db.Column(
         db.Integer,
-        db.ForeignKey("Users.id"),
+        db.ForeignKey("users.id"),
         nullable=False
         )
     community_id = db.Column(
         db.Integer,
-        db.ForeignKey("Communities.id"),
+        db.ForeignKey("communities.id"),
         nullable=False
         )
     arguments = db.relationship(
         "Argument",
-        backref="debate",
+        backref="debates",
         lazy="dynamic"
     )
 
@@ -149,7 +149,7 @@ class Debate(BaseModel):
 
 
 class Argument(BaseModel):
-    __tablename__ = "Arguments"
+    __tablename__ = "arguments"
 
     title = db.Column(
         db.String(1000),
@@ -161,12 +161,12 @@ class Argument(BaseModel):
         )
     user_id = db.Column(
         db.Integer,
-        db.ForeignKey('Users.id'),
+        db.ForeignKey('users.id'),
         nullable=False
         )
     debate_id = db.Column(
         db.Integer,
-        db.ForeignKey('Debates.id'),
+        db.ForeignKey('debates.id'),
         nullable=False
         )
 
