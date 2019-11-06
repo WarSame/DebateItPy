@@ -140,8 +140,7 @@ class Debate(BaseModel):
         )
     arguments = db.relationship(
         "Argument",
-        backref="debates",
-        lazy="dynamic"
+        backref="debates"
     )
 
     def __repr__(self):
