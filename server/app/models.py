@@ -138,7 +138,7 @@ class Debate(BaseModel):
         db.ForeignKey("communities.id"),
         nullable=False
         )
-    arguments = db.relationship(
+    arg_ids = db.relationship(
         "Argument",
         backref="debates"
     )

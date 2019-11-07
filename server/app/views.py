@@ -23,6 +23,6 @@ class ArgumentSchema(ma.ModelSchema):
 
 class DebateSchema(ma.ModelSchema):
     class Meta:
-        fields = ('id', 'title', 'description', 'creator_id', 'community_id', 'arguments')
+        fields = ('id', 'title', 'description', 'creator_id', 'community_id', 'arg_ids')
         model = Debate
     posts = fields.Nested(ArgumentSchema, many=True)
