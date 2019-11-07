@@ -1,26 +1,19 @@
 <div class="container">
   <div class="header">
     <mat-expansion-panel>
-        <mat-expansion-panel-header class="neutral">
-          <mat-panel-title>
-              {{ debate.title }}
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        {{ debate.description }}
-        <div class="debate-footer">
-            Creator: {{ debate.creator_id }}
-            Community: {{ debate.community_id }}
-        </div>
-      </mat-expansion-panel>
-  </div>
-  <div class="body">
-      <div *ngFor="let argument of debate.arg_list" class="right-side post">
-        <mat-expansion-panel>
-          <mat-expansion-panel-header class="team-A">
-            {{ argument.title }}
-          </mat-expansion-panel-header>
-          <p>{{ argument.text }}</p>
-        </mat-expansion-panel>
+      <mat-expansion-panel-header class="neutral">
+        <mat-panel-title>
+          {{ debate.title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      {{ debate.description }}
+      <div class="debate-footer">
+        Creator: {{ debate.creator_id }}
+        Community: {{ debate.community_id }}
       </div>
-    </div>
+    </mat-expansion-panel>
   </div>
+  <div *ngFor="let id of debate.arg_ids" class="right-side post">
+    <app-argument argument_id={{id}}></app-argument>
+  </div>
+</div>

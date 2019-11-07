@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ArgumentService } from 'src/app/services/argument/argument.service';
 
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { switchMap } from 'rxjs/operators';
 import { Argument } from '../argument';
 
 @Component({
@@ -11,23 +10,19 @@ import { Argument } from '../argument';
   templateUrl: './get-argument.component.html',
   styleUrls: ['./get-argument.component.css']
 })
-export class GetArgumentComponent implements OnInit {
+export class GetArgumentComponent {
   private argument: Argument;
 
   constructor(
     private service: ArgumentService,
-    private route: ActivatedRoute,
     private router: Router
     ) {
-      this.argument = new Argument('', '', '', '');
   }
 
-  ngOnInit() {
-    this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.service.getArgument(params.get('id'))
-      )
-    )
+  @Input()
+  set argument_id(argument_id: number) {
+    console.log('here');
+    this.service.getArgument(String(argument_id))
     .subscribe(
       argument => {
         this.argument = argument;
@@ -38,5 +33,4 @@ export class GetArgumentComponent implements OnInit {
         this.router.navigate(['404']);
       });
   }
-
 }

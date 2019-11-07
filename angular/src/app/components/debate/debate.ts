@@ -6,7 +6,7 @@ export class Debate {
         public description: string,
         public creator_id: string,
         public community_id: string,
-        public arg_list: Argument[]
+        public arg_ids: number[]
     ) {
     }
 }
