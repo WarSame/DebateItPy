@@ -1,7 +1,7 @@
 from flask import request, current_app, jsonify, abort
 from ..models import User, Community, Argument, Debate
 from ..main import bp
-from ..views import CommunitySchema, UserSchema, DebateSchema, ArgumentSchema
+from ..views import CommunitySchema, UserSchema, DebateSchema, ArgumentSchema, ArgumentsForDebate
 
 
 @bp.route("/api/u/", methods=["POST"])
@@ -77,6 +77,18 @@ def get_argument(argument_id=None):
     argument_json = ArgumentSchema().dump(argument)
     current_app.logger.info(argument_json)
     return jsonify(argument_json)
+
+
+@bp.route("/api/d/<debate_id>/a/", methods=["GET"])
+def get_arguments_for_debate(debate_id=None):
+    arguments = Argument.retrieve_all(debate_id=debate_id)
+    current_app.logger.info(arguments)
+    current_app.logger.info("Number of arguments: {}".format(len(arguments)))
+    if arguments is None:
+        return abort(404)
+    arguments_json = ArgumentsForDebate().dump(arguments)
+    current_app.logger.info(arguments_json)
+    return jsonify(arguments_json)
 
 
 @bp.route("/api/a/", methods=["POST"])
