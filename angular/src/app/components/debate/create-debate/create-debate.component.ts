@@ -37,7 +37,8 @@ export class CreateDebateComponent implements OnInit {
       this.form.value.title,
       this.form.value.description,
       this.form.value.creator_id,
-      this.form.value.community_id
+      this.form.value.community_id,
+      []
       );
     this.service.createDebate(this.debate).subscribe(
       data => {
