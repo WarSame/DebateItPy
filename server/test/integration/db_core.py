@@ -1,6 +1,22 @@
 from .. import models
 
 
+def retrieve_community(ids):
+    return models.Community.retrieve_one(id=ids["community_id"])
+
+
+def retrieve_user(ids):
+    return models.User.retrieve_one(id=ids["user_id"])
+
+
+def retrieve_debate(ids):
+    return models.Debate.retrieve_one(id=ids["debate_id"])
+
+
+def retrieve_arguments(ids):
+    return models.Argument.retrieve_all(debate_id=ids["debate_id"])
+
+
 def insert_user(db):
     u = models.User(name="graeme", email="graeme@test.com", google_id="something")
     db.session.add(u)
@@ -32,7 +48,7 @@ def insert_arguments(db, u_id, d_id):
     return [arg1.id, arg2.id]
 
 
-def fill_db(db):
+def fill_db_direct(db):
     ids = {
         "user_id": insert_user(db=db),
         "community_id": insert_community(db=db)
