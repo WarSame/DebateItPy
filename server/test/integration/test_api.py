@@ -33,9 +33,9 @@ class TestUserModelCase(unittest.TestCase):
         assert (d.json["id"] == 1)
 
     def test_retrieveArgumentsForDebate(self):
-        arguments = retrieve_arguments(self.app, self.ids).json["args"]
+        arguments = retrieve_arguments(self.app, self.ids).json
         for argument in arguments:
-            assert (self.ids["arg_ids"].__contains__(argument.id))
+            assert (self.ids["arg_ids"].__contains__(argument["id"]))
         assert (len(arguments) == 2)
 
 
