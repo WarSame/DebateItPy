@@ -8,7 +8,7 @@ class TestUserModelCase(unittest.TestCase):
         app = create_app()
         app.app_context().push()
         app.testing = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://pguser:pguser@127.0.0.1:5432/debateit'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
         self.app = app.test_client()
         db.drop_all()
         db.create_all()
